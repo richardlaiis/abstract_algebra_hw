@@ -1,0 +1,229 @@
+% compile this file with xelatex
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage[margin=2cm, a4paper]{geometry}
+\usepackage{setspace}
+\usepackage{pdfpages}
+\usepackage{float}
+\usepackage{ctex}
+\usepackage{amsmath}
+\usepackage{fancyvrb}
+\usepackage{amssymb}
+\usepackage{minted}
+\usepackage{enumitem}
+\usepackage{csquotes}
+\usepackage[colorlinks,linkcolor=blue]{hyperref}
+
+\usepackage{xeCJK}
+\setCJKmainfont{Noto Sans TC}
+
+\renewcommand{\contentsname}{Contents}
+\renewcommand{\figurename}{Figure}
+\renewcommand{\tablename}{Table}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+\newcommand{\mytitle}{Introduction to Algebra (I) Homework 1}
+\newcommand{\myauthor}{B13902022 賴昱錡}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[L]{\mytitle}
+\fancyhead[R]{\myauthor}
+
+\title{\mytitle}
+\author{\textbf{\myauthor}}
+\date{\today}
+
+\begin{document}
+
+% \onespacing
+\maketitle
+
+\section{}
+\subsection*{(a)}
+By some calculation as belows, $i=2,3,6$ satisfies the given condition that $f_i(f_i(x))=x$ asides from $i=1$.
+\begin{align*}
+    f_2(f_2(x))=1-(1-x)=x \\
+    f_3(f_3(x))=\frac{1}{\frac{1}{x}}=x \\
+    f_6(f_6(x))=\frac{\frac{x}{x-1}}{\frac{x}{x-1}-1}=x
+\end{align*}
+\subsection*{(b)}
+By some observation, $f_1(x)$ satisfies the condition $f_i(x)=x$, $f_2(x),f_3(x),f_6(x)$ satisfies $f_i(f_i(x))=x$, and $f_4(x),f_5(x)$ satisfies the condition $f_i(f_i(f_i(x)))=x$.
+
+For set $S$, we can do the same operation several times to form original permutation. The 1st method is doing $(1)$ for one time, the 2nd method is doing $(12)$, $(23)$ or $(13)$ for 2 times, and the 3rd method is doing $(123)$ or $(132)$ for 3 times.
+
+Thus, considering the counts of composition and the operations, we can correspond $f_2(x)$ to $(12)$, $f_3(x)$ to $(23)$, $f_6(x)$ to $(13)$. Also $f_1(x)$ to $(1)$, and $f_(4)$ to $(123)$, and $f_5(x)$ to $(132)$.
+\subsection*{(c)}
+For $i,j\in{2,3,6},\ i\ne j$, considering all possible compositions, thus, $f_i(f_j(x))\ne f_j(f_i(x))$ is true.
+\begin{align*}
+f_2(f_3(x))=1-\frac{1}{x} \\
+f_3(f_2(x))=\frac{1}{1-x} \\
+f_2(f_6(x))=1-\frac{x}{x-1} \\
+f_6(f_2(x))=\frac{1-x}{-x} \\
+f_3(f_6(x))=\frac{x-1}{x} \\
+f_6(f_3(x))=\frac{\frac{1}{x}}{\frac{1}{x}-1}=\frac{1}{1-x}
+\end{align*}
+Similarily, consider their corresponding element in $S$, we have: (In my correspondence, if $f_i$ corresponds to operation a, $f_j$ corresponds to operation $b$, then $f_i(f_j(x))$ corresponds to doing $a$ then $b$ ($a\rightarrow b$))
+\begin{itemize}
+    \item $(12)\rightarrow(13)$ results in $(132)$.
+    \item $(13)\rightarrow(12)$ results in $(123)$.
+    \item $(12)\rightarrow(23)$ results in $(123)$.
+    \item $(23)\rightarrow(12)$ results in $(132)$.
+    \item $(13)\rightarrow(23)$ results in $(132)$.
+    \item $(23)\rightarrow(13)$ results in $(123)$.
+\end{itemize}
+The corresponding element in $S$ also satisfies the given condition.
+\subsection*{(d)}
+By 1(b), $f_1(x)$ is corresponding to $(1)$, and $f_4(x)$ to $(123)$, and $f_5(x)$ to $(132)$.
+\section{}
+\subsection*{(a)}
+The elements satisfying the condition when $n=5$ include $1,2,3$. For $x=1$, we can choose $y=1$. For $x=2$, we can choose $y=3$. For $x=3$, we can choose $y=2$. For $x=4$, we can choose $y=4$. There are 4 elements satisfying the condition.
+\subsection*{(b)}
+For $n=6$:
+\begin{itemize}
+    \item $x=1,y=1\Rightarrow1*1\equiv 1\pmod6$
+    \item $x=5,y=5\Rightarrow5*5\equiv 1\pmod6$
+\end{itemize}
+\subsection*{(c)}
+For $n=8$:
+\begin{itemize}
+    \item $x=1,y=1\Rightarrow1\equiv 1\pmod8$
+    \item $x=3,y=3\Rightarrow9\equiv 1\pmod8$
+    \item $x=5,y=5\Rightarrow25\equiv 1\pmod8$
+    \item $x=7,y=7\Rightarrow49\equiv 1\pmod8$
+\end{itemize}
+\subsection*{(d)}
+For $n=13$:
+\begin{itemize}
+    \item $x=1,y=1\Rightarrow1\equiv 1\pmod{13}$
+    \item $x=2,y=7\Rightarrow14\equiv 1\pmod{13}$ 
+    \item $x=3,y=9\Rightarrow27\equiv 1\pmod{13}$
+    \item $x=4,y=10\Rightarrow40\equiv 1\pmod{13}$
+    \item $x=5,y=8\Rightarrow40\equiv 1\pmod{13}$
+    \item $x=6,y=11\Rightarrow66\equiv 1\pmod{13}$
+    \item $x=7,y=2\Rightarrow14\equiv 1\pmod{13}$
+    \item $x=8,y=5\Rightarrow40\equiv 1\pmod{13}$
+    \item $x=9,y=3\Rightarrow27\equiv 1\pmod{13}$
+    \item $x=10,y=4\Rightarrow40\equiv 1\pmod{13}$
+    \item $x=11,y=6\Rightarrow66\equiv 1\pmod{13}$
+    \item $x=12,y=12\Rightarrow144\equiv 1\pmod{13}$
+\end{itemize}
+\subsection*{(e)}
+For $n=30$:
+\begin{itemize}
+    \item $x=1,y=1\Rightarrow1\equiv 1\pmod{30}$
+    \item $x=7,y=13\Rightarrow91\equiv 1\pmod{30}$
+    \item $x=11,y=11\Rightarrow121\equiv 1\pmod{30}$
+    \item $x=13,y=7\Rightarrow91\equiv 1\pmod{30}$
+    \item $x=17,y=23\Rightarrow391\equiv 1\pmod{30}$
+    \item $x=19,y=19\Rightarrow361\equiv 1\pmod{30}$
+    \item $x=23,y=17\Rightarrow391\equiv 1\pmod{30}$
+    \item $x=29,y=29\Rightarrow841\equiv 1\pmod{30}$
+\end{itemize}
+\section{}
+\subsection*{(a)}
+We have to prove that "There exists integer $a,b$ such that $ax+bn=1$." is \textbf{necessary and sufficient} for $x\in\mathbb{Z}/n\mathbb{Z}^{\times}$ (Here $x\in\mathbb{Z}/n\mathbb{Z}$).
+
+For any $x\in(\mathbb{Z}/n\mathbb{Z})^{\times}$, by definition, there exists integer $a\in[1,n-1]$ (Because $a\in\mathbb{Z}/n\mathbb{Z}$, the condition $a=0$ is impossible for $ax\equiv 1\pmod{n}$), such that $ax\equiv 1\pmod{n}$, so $ax$ can be written as the form $ax=-bn+1,b\in\mathbb{Z},b=\frac{ax-1}{-n}$. Thus, there exists integer $a,b$ such that $ax+bn=1$, and the \textbf{necessity} of "There exists integer $a,b$ such that $ax+bn=1$." has been proven. 
+
+If there exists integer $a,b$ such that $ax+bn=1$, integer $a$ can be written as the form $a=un+v, u\in\mathbb{Z},v\in\mathbb{Z}/n\mathbb{Z}$ (By basic division). Make a substitution:
+\begin{align*}
+    (un+v)x+bn=1 \\
+    vx=-unx-bn+1=n(-ux-b)+1
+\end{align*}
+We can observe that $vx\equiv 1\pmod{n}$, thus, $x\in(\mathbb{Z}/n\mathbb{Z})^{\times}$, and the sufficiency has been proven.
+
+In conclusion, "There exists integer $a,b$ such that $ax+bn=1$." is \textbf{necessary and sufficient} for $x\in\mathbb{Z}/n\mathbb{Z}^{\times}$ (Here $x\in\mathbb{Z}/n\mathbb{Z}$).
+\subsection*{(b)}
+In (b), we need to prove that "$n$ is prime" is \textbf{necessary and sufficient} for $(\mathbb{Z}/n\mathbb{Z})^{\times}$ having $n-1$ elements.
+
+Before proving the sufficiency, we have to prove the theorem called \textbf{Bézout's Identity}:
+
+Also, for simplicity, $(a,b)$ means $\gcd{(a,b)}$ in the following proof.
+
+\begin{displayquote}
+Let $a,b\in\mathbb{Z},ab\ne0$
+
+$d=\gcd{(a,b)}$ be the greatest common divisor of $a$ and $b$. 
+
+Then $\exists x,y\in\mathbb{Z}$ such that $ax+by=d$. Also, $d$ is the smallest positive integer combination of $a$ and $b$.
+\end{displayquote}
+
+\noindent\textbf{Proof:}
+
+Given any two non-zero integer $a,b$, Let set $S=\{ax+by:x,y\in\mathbb{Z}\land ax+by>0\}$
+
+It's trivial that $S$ is not an empty set (For example, $a>0,x=1,y=0$ or $a<0,x=1,y=0$, $ax+by\in S$, thus, $S$ is not an empty set). Since all elements in $S$ are positive integers, by well ordering principle, $S$ contains a least element $d$. And write it as the form $d=au+bv$, where $u$ and $v$ are integers.
+
+Consider $a$'s euclidean division: $a=qd+r, q\in\mathbb{Z}, 0\le r < d$, we have:
+\[r=a-qd=a-q(au+bv)=a(1-qu)-bqv\]
+Because both $1-qu$ and $qv$ are integers, $r\in S\cup \{0\}$ (because $0\le r < d$). Also, $d$ is the least element in $S$, this implies that $r$ is not belonging to $S$, it must be $0$. Thus, $d|a$. Similarily, $d|b$.
+
+Consider arbitrary common divisor $c$ of $a,b$, $\exists s,t$ such that $a=cs,b=ct$. So, $d=au+bv=c(us+vt)$, because $us+vt\in \mathbb{Z}$, we know $c|d\land c\le d$.
+
+Since $d$ is greater than all divisors, $d=\gcd{(a,b)}$, it's also the least element in $S$ by previous definition.
+
+\noindent\rule{\textwidth}{1pt}
+
+To prove the sufficiency of $n$ being prime, assume $n$ is prime. Then for every $x\in(\mathbb{Z}/n\mathbb{Z}), x\ne 0$ we have $(x,n)=1$. By Bézout's Identity, there exists integers $a,b$ such that $ax+bn=1$. This implies $x\in(\mathbb{Z}/n\mathbb{Z})^{\times}$ by 3(a). Thus, there are $n-1$ elements in $(\mathbb{Z}/n\mathbb{Z})^{\times}$ (Since except for $0$, $(\mathbb{Z}/n\mathbb{Z})$ contains $n-1$ elements).
+
+To prove the necessity of $n$ being prime, assume there are $n-1$ elements in $(\mathbb{Z}/n\mathbb{Z})^{\times}$, the group has all integers on the interval $[1,n-1]$. And this implies that there exists integer $a$ and $b$ such that $ax+bn=1$ by 3(a). (choose arbitrary $x\in(\mathbb{Z}/n\mathbb{Z})^{\times}$) 
+
+Let $\gcd{(x,n)}=k\ne n, x=ku, n=kv$, $u,v\in \mathbb{Z}$. Pluggin it in $ax+bn=1$ we get $k(ua+vb)=1$, since $ua+vb\in \mathbb{Z}$, $k\ne 1$ is impossible. So, $(x,n)=1$. Because all integers on $[1,n-1]$ is coprime to $n$, $n$ is a prime number obviously. Here the necessity is proved.
+
+In conclusion, "$n$ is prime" is \textbf{necessary and sufficient} for $(\mathbb{Z}/n\mathbb{Z})^{\times}$ having $n-1$ elements. Thus, $(\mathbb{Z}/n\mathbb{Z})^{\times}$ has $n-1$ elements if and only if $n$ is prime.
+\section{}
+\subsection*{(a)}
+Suppose $e$ and $e'$ are identity elements of group $(G,*)$, by the definition of group, $\forall g\in G$, there are:
+$$g*e=e*g=g,\ g*e'=e'*g=g$$
+Thus, $e=e*e'=e'*e=e'$, the identity element of a group is unique.
+
+Suppose $h$ and $h'$ are the inverse element of an element $x\in G$, and $e$ is the identity element of group $(G,*)$, by the definition:
+$$x*h=h*x=e,\ x*h'=h'*x=e$$
+And $h*(x*h')=(h*x)*h'=e*h'=h'$, thus, the inverse for every $x\in G$ is unique.
+\subsection*{(b)}
+We can consider four cases: a group having 1,2,3 and 4 elements (obviously an empty set is not a group due to the lack of identity and inverse).
+
+Any group with only one element (Let it be $\{x\}$) trivially follows the commutative rule, since the order doesn't matter:
+$$x*x=x\Rightarrow x=x^{-1}=e$$
+
+A group $G$ with 2 elements must be in the form $\{e,a\}$ (By definition, group must has one unique identity element), where $e$ is the identity and $a$ is a  non-identity element. (In the case $a^{-1}=a, e^{-1}=e$). By the definition, $a*e=e*a=a$. Thus, every group with 2 elements is abelian.
+
+Similarily, a group $G$ with 3 elements must be in the form $\{e, a, b\}$ ($a\ne b\ne e$, $e$ is the identity), since $a\ne e,b\ne e,ab\in G$, we have:
+$$a*b=e$$
+
+$a$ and $b$ are inverse to each other, $a*b=b*a$. This is the only non-trival case, $a*e=e*a$ and $b*e=e*b$ are true by definition. Thus, every group with 3 elements is also abelian group.
+
+
+Similarily, a group $G$ with 4 elements must be in the form $\{e, a, b, c\}$ ($a\ne b\ne c\ne e$, $e$ is the identity). Assume that the group is \textbf{not} an abelian group, that is, there exists one pair of non-identity elements (Without loss of generosity, let the pair be $a$ and $b$) such that $a*b\ne b*a$.
+
+$a*b\ne a,a*b\ne b$ since the identity is unique. Also, $a*b\ne e$, because $a*b=e$ implies $b*a=e$ as well. To make $a*b\in G$, the only possibility is $a*b=c$.
+
+Consider $b*a$, it is not equal to $a$, $b$ and $e$ because of the same reason mentioned in last paragraph. But $b*a\in G$ by the definition of group, the only possibility is $b*a=a*b=c$, which creates a contradiction. Thus, any group with 4 elements are abelian.
+
+After proving as above, we can have the conclusion that if $G$ has at most four elements, for all $x,y\in G$, we have $x*y=y*x$.
+\subsection*{(c)}
+If every element $x\in G$ satisfies $x*x=e$, then $x=x^{-1}$. So:
+\begin{align*}
+    x*y &= x^{-1}*y^{-1} \\
+    &= (y*x)^{-1} \\
+    &= y*x
+\end{align*}
+Obviously, for all $x,y\in G$ we have $x*y=y*x$.
+\end{document}
+% how to display codes?
+% \begin{minted}[frame=lines,framesep=2mm,baselinestretch=1.2,linenos,breaklines]{python}
+% \end{minted}
+
+% how to display images?
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.5\linewidth]{}
+%     \caption{Caption}
+% \end{figure}
+% test
