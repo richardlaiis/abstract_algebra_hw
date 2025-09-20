@@ -6,8 +6,10 @@
 \usepackage{fancyvrb}
 \usepackage{amssymb}
 \usepackage{enumitem}
+
 \usepackage{amsthm}
 \usepackage[english]{babel}
+\newtheorem{theorem}{Theorem}
 
 \usepackage{xeCJK}
 \setCJKmainfont{Noto Sans TC}
@@ -81,9 +83,9 @@ Thus, $|A|\ne 0$ is necessary and sufficient.
 \end{proof}
 \noindent\rule{\textwidth}{1pt}
 
-By claim 1, every element in $H$ has its inverse due to their non-zero determinant. Suppose A is any matrix in $H$, and its inverse is $A^{-1}$, then $AA^{-1}=A^{-1}A=I,|A||A^{-1}|=|I|=1$, thus, $|A^{-1}|=1$.
+By claim 1, every element in $SL_n(\mathbb{R})$ has its inverse due to their non-zero determinant. Suppose A is any matrix in $SL_n(\mathbb{R})$, and its inverse is $A^{-1}$, then $AA^{-1}=A^{-1}A=I,|A||A^{-1}|=|I|=1$, thus, $|A^{-1}|=1$.
 
-Hence, the inverse of A, i.e., $A^{-1}$ is also in $H$. Here the closedness of inverse is proved. By the subgroup criterion proved in 2(i), $\mathrm{SL}_n{\mathbb{R}}$ is a subgroup of $\mathrm{GL}_n{\mathbb{R}}$.
+Hence, the inverse of A, i.e., $A^{-1}$ is also in $SL_n(\mathbb{R})$. Here the closedness of inverse is proved. By the subgroup criterion proved in 2(i), $\mathrm{SL}_n({\mathbb{R}})$ is a subgroup of $\mathrm{GL}_n({\mathbb{R}})$.
 
 
 \newpage
@@ -95,12 +97,13 @@ Let's call the two sets $A$ and $B$. $A=\{1,2,\dots,n\},B=\{1,2,\dots,n\}$. And 
 Since the map is bijective, for $1$ in $A$, there are $n$ choices to be mapped, after $1$ is mapped, $2$ in $A$ has $n-1$ choices to be mapped, and so on.
 
 Thus, there are $n(n-1)(n-1)\dots1=n!$ types of bijection, i.e., the order of $S_n$ is $n!$.
+% I still need to show that S is a group!!!
 \end{proof}
 \subsection{} %b
 \subsection{} %c
 The identity element in the group for matrices multiplication is the identity matrix $I_{2\times2}$.
 
-For $a$, $a=\big(\begin{smallmatrix}0 & -1\\1 & 0\end{smallmatrix}\big)$,$a^2=\big(\begin{smallmatrix}-1 & 0\\0 & -1\end{smallmatrix}\big)$,$a^3=\big(\begin{smallmatrix}0 & 1\\-1 & 0\end{smallmatrix}\big)$,$a^1=\big(\begin{smallmatrix}1 & 0\\0 & 1\end{smallmatrix}\big)=I_{2\times2}$. Thus, $o(a)=4$. For $b$, $b=\big(\begin{smallmatrix}0 & 1\\-1 & -1\end{smallmatrix}\big)$, $b^2=\big(\begin{smallmatrix}-1 & -1\\1 & 0\end{smallmatrix}\big)$,$b^3=\big(\begin{smallmatrix}1 & 0\\0 & 1\end{smallmatrix}\big)=I_{2\times2}$, thus, $o(b)=3$.
+For $a$, $a=\big(\begin{smallmatrix}0 & -1\\1 & 0\end{smallmatrix}\big)$,$a^2=\big(\begin{smallmatrix}-1 & 0\\0 & -1\end{smallmatrix}\big)$,$a^3=\big(\begin{smallmatrix}0 & 1\\-1 & 0\end{smallmatrix}\big)$,$a^4=\big(\begin{smallmatrix}1 & 0\\0 & 1\end{smallmatrix}\big)=I_{2\times2}$. Thus, $o(a)=4$. For $b$, $b=\big(\begin{smallmatrix}0 & 1\\-1 & -1\end{smallmatrix}\big)$, $b^2=\big(\begin{smallmatrix}-1 & -1\\1 & 0\end{smallmatrix}\big)$,$b^3=\big(\begin{smallmatrix}1 & 0\\0 & 1\end{smallmatrix}\big)=I_{2\times2}$, thus, $o(b)=3$.
 
 
 
@@ -114,6 +117,49 @@ For $a$, $a=\big(\begin{smallmatrix}0 & -1\\1 & 0\end{smallmatrix}\big)$,$a^2=\b
 \newpage
 \section{} % 4
 \subsection{} %a
+\begin{theorem} \textbf{Bézout's identity}
+
+Let $a,b\in\mathbb{Z},ab\ne0$
+
+$d=\gcd{(a,b)}$ be the greatest common divisor of $a$ and $b$. 
+
+Then $\exists x,y\in\mathbb{Z}$ such that $ax+by=d$. Also, $d$ is the smallest positive integer combination of $a$ and $b$.
+\end{theorem}
+\begin{proof}
+
+Given any two non-zero integer $a,b$, Let set $S=\{ax+by:x,y\in\mathbb{Z}\land ax+by>0\}$
+
+It's trivial that $S$ is not an empty set (For example, $a>0,x=1,y=0$ or $a<0,x=1,y=0$, $ax+by\in S$, thus, $S$ is not an empty set). Since all elements in $S$ are positive integers, by well ordering principle, $S$ contains a least element $d$. And write it as the form $d=au+bv$, where $u$ and $v$ are integers.
+
+Consider $a$'s euclidean division: $a=qd+r, q\in\mathbb{Z}, 0\le r < d$, we have:
+\[r=a-qd=a-q(au+bv)=a(1-qu)-bqv\]
+Because both $1-qu$ and $qv$ are integers, $r\in S\cup \{0\}$ (because $0\le r < d$). Also, $d$ is the least element in $S$, this implies that $r$ is not belonging to $S$, it must be $0$. Thus, $d|a$. Similarily, $d|b$.
+
+Consider arbitrary common divisor $c$ of $a,b$, $\exists s,t$ such that $a=cs,b=ct$. So, $d=au+bv=c(us+vt)$, because $us+vt\in \mathbb{Z}$, we know $c|d\land c\le d$.
+
+Since $d$ is greater than all divisors, $d=\gcd{(a,b)}$, it's also the least element in $S$ by previous definition.
+\end{proof}
+
+\noindent\rule{\textwidth}{1pt}
+\noindent \textbf{Claim 2: } If x is the generator of cyclic group $H$, then the order of $H$ is the same as $x$ (If one side of this equality is infinite, so is the other).
+\begin{proof}
+Let $|x|=n$ and first consider the case when $n<\infty$. The elements $1,x,x^2,\dots,x^{n-1}$ are distinct since if $x^a=x^b,0\le a<b<n$ then $x^{b-a}=1$, which contradict $n$ being the smallest positive power give the identity. Also, we can write any integer power $t$ as the form $t=ns+r,0\le r<n$. Hence, $x^t=x^{ns+r}=(x^n)^sx^r=x^r\in\{1,x,\dots,x^{n-1}\}$, $x$ can generate all elements in $H$.
+
+Suppose $|x|=\infty$ so no power of $x$ is the identity, If $x^a=x^b$ for some $a$ and $b$, with $a<b$, then $x^{b-a}=1$ induced a contradiction. Distinct power of $x$ are distinct elements of $|H|$, so $|H|=\infty$ is true.
+\end{proof}
+
+\noindent \textbf{Claim 3: } Let G be an arbitrary group, $x\in G$ and let $m,n\i,n\mathbb{Z}$. If $x^n = 1$ and $x^m = 1$, then $x^d = 1$, where $d=(m,n)$ In particular, if $x^m = 1$ for some $m\in\mathbb{Z}$, then $|x|$ divides $m$.
+\begin{proof}
+By Theorem 1 there exists integers $a$ and $b$ such that $d=an+bm,d=(m,n)$. Thus, $x^d=x^{an+bm}=(x^n)^a(x^m)^b=1$, this proves the first assertion.
+
+If $x^m=1$, let $n=|x|$. If $m=0$, $n|m$ is trivially true. Assume $m$ is not zero, by preceeding result, $x^d=1,d=(m,n)$. Since $0< d\le n$ and $n$ is the smallest positive power of $x$ which gives the identity, we must have $d=n$, that is $n|m$ as the claim said.
+\end{proof}
+\noindent \textbf{Claim 4:} Let $G$ be a group, let $x\in G$ and let $a\in\mathbb{Z}-\{0\}$, if $o(x)=n<\infty$, then $o(x^a)=\frac{n}{(n,a)}$. 
+
+\noindent \textbf{Claim 5:} Let $H=<x>$. Assume $o(x)=n<\infty$. Then $H=<x^a>$ if and only if $(a,n)=1$.
+
+\noindent\rule{\textwidth}{1pt}
+
 \subsection{} %b
 \subsection{} %c
 
