@@ -40,11 +40,11 @@
 \subsection{} %a
 Take the sum of $14$ and $13$, and it's $27$ modulo $30$, $27\notin G_1$ thus, $G_1$ is not a subgroup of $G$.
 \subsection{} %b
-We can check some necessary properties a subgroup must follow:
+We can show that the subset $G_2$ is a subgroup of $G$ by showing $G_2$ is non-empty and closed under addition ($+$) and inverses:
 \begin{itemize}
-    \item All elements of $G_2$ are also in $G$, $G_2\in G$
-    \item $\exists e$ such that $\forall g\in G_2,g+e=e+g=g$. There $e=0$.
-    \item $0+0\equiv 0\pmod{30}$, thus, $g^{-1}=0$ when $g=0$. All the other non-zero elements $\in G_2$ can be written as the form $2k,k\in[1,14],k\in\mathbb{N}$. Assume $g=2k$, then there must exists an element $h=2(15-k)\in G_2$ such that $g+k\equiv 0\pmod{30}$. Thus, every element in $G_2$ has an inverse element.
+    \item The identity element of $G_2$ is 0, since the result of $g+0=0+g=g$ modulo $30$ is unchanged.
+    \item $0+0\equiv 0\pmod{30}$, thus, $g^{-1}=0$ when $g=0$. All the other non-zero elements $\in G_2$ can be written as the form $2k,k\in[1,14],k\in\mathbb{N}$. Assume $g=2k$, then there must exists an element $h=2(15-k)\in G_2$ such that $g+k\equiv 0\pmod{30}$. Thus, every element in $G_2$ has an inverse element in $G_2$.
+    \item Take the sum of any two elements $x,y\in G_2$. Their sum is even, and the result modulo 30 must be a even number less than 30, which implies $x+y\in G_2$. Thus, $G_2$ is closed under addition.
 \end{itemize}
 \subsection{} %c
 Take the sum of $1$ and $29$, and it's $0$ modulo $30$, $0\notin G_3$ thus, $G_3$ is not a subgroup of $G$.
@@ -91,15 +91,34 @@ Hence, the inverse of A, i.e., $A^{-1}$ is also in $SL_n(\mathbb{R})$. Here the 
 \newpage
 \section{} % 3
 \subsection{} %a
+First, we need to prove that the set $S_n$ has $n!$ elements.
 \begin{proof}
 Let's call the two sets $A$ and $B$. $A=\{1,2,\dots,n\},B=\{1,2,\dots,n\}$. And $A$ is mapped to $B$.
 
 Since the map is bijective, for $1$ in $A$, there are $n$ choices to be mapped, after $1$ is mapped, $2$ in $A$ has $n-1$ choices to be mapped, and so on.
 
-Thus, there are $n(n-1)(n-1)\dots1=n!$ types of bijection, i.e., the order of $S_n$ is $n!$.
+Thus, there are $n(n-1)(n-1)\dots1=n!$ types of bijection.
 % I still need to show that S is a group!!!
 \end{proof}
+Then we need to show that $S_n$ is a group (there the operation is the composition of two bijective functions)
+\begin{proof}
+For the closedness, if $f,g\in S_n$, then their composition (written as $(f\circ g)(x)=f(g(x))$) is also bijective trivially. Thus, $f\circ g\in S_n$.
+
+For the associativity, suppose we have three bijections $f,g,h\in S_n$, take any integer $x\in{1,2,\dots,n}$. Then $f\circ (g\circ h)(x)=f\circ g(h(x))=f(g(h(x)))$ and $(f\circ g)\circ h(x)=(f\circ g)(h(x))=f(g(h(x)))$. The composition of bijections are associative.
+
+The identity element in $S_n$ is the mapping $\mathrm{id}:\{1,2,\dots,n\}\rightarrow\{1,2,\dots,n\}$ such that for every element $\tau$ in $S_n$, we have $\mathrm{id}\circ\tau(x)=\tau\circ\mathrm{id}(x)$, where $x\in\{1,2,\dots,n\}$.
+
+Since every element in $S_n$ is a bijective mapping, by definition, we must can find an inverse operation/element for every element in $S_n$.
+\end{proof}
+In conclusion, $S_n$ is a group with order $n!$.
 \subsection{} %b
+Let's call the subset $H$ ($H\subset S_2$). Obviously the $H$ is not empty. For compositions of any $\tau,\sigma\in H$, we have a bijection fixing $1$ again, thus, $H$ is closed under the composition.
+
+Since every bijection has its inverse operation, also, $\forall \sigma\in H$, $1$ is fixed (always mapped to $1$), $\sigma^{-1}$ is also a bijection fixing 1, which implies $\sigma^{-1}\in H$. Thus, $H$ is closed under taking inverses.
+
+Hence, by the subgroup criterion proved in 2(i), the given subset is a subgroup of $S_4$.
+
+Since the subset is the collection of bijections fixing $1$, the bijective mapping $\{2,3,4\}\rightarrow\{{2,3,4}\}$ have $3!$ possibilities by the proposition in 3(a). Hence, the order of the group is $6$.
 \subsection{} %c
 The identity element in the group for matrices multiplication is the identity matrix $I_{2\times2}$.
 
