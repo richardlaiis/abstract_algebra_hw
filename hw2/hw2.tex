@@ -98,7 +98,9 @@ Thus, there are $n(n-1)(n-1)\dots1=n!$ types of bijection, i.e., the order of $S
 \end{proof}
 \subsection{} %b
 \subsection{} %c
+The identity element in the group for matrices multiplication is the identity matrix $I_{2\times2}$.
 
+For $a$, $a=\big(\begin{smallmatrix}0 & -1\\1 & 0\end{smallmatrix}\big)$,$a^2=\big(\begin{smallmatrix}-1 & 0\\0 & -1\end{smallmatrix}\big)$,$a^3=\big(\begin{smallmatrix}0 & 1\\-1 & 0\end{smallmatrix}\big)$,$a^1=\big(\begin{smallmatrix}1 & 0\\0 & 1\end{smallmatrix}\big)=I_{2\times2}$. Thus, $o(a)=4$. For $b$, $b=\big(\begin{smallmatrix}0 & 1\\-1 & -1\end{smallmatrix}\big)$, $b^2=\big(\begin{smallmatrix}-1 & -1\\1 & 0\end{smallmatrix}\big)$,$b^3=\big(\begin{smallmatrix}1 & 0\\0 & 1\end{smallmatrix}\big)=I_{2\times2}$, thus, $o(b)=3$.
 
 
 
@@ -129,8 +131,16 @@ Thus, there are $n(n-1)(n-1)\dots1=n!$ types of bijection, i.e., the order of $S
 \newpage
 \section{} % 5
 \subsection{} %a
+\begin{proof}
+    
+\end{proof}
 \subsection{} %b
 \subsection{} %c
+Since elements in the abelian group $(G,*)$ are commutative, i.e., for any $a,b\in G$, we have $a*b=b*a$.
+
+Let's choose one arbitrariry elements $g$, consider the subgroup as $B=\{a_1,a_2,\dots,a_m\}$. Then $gB=\{g*a_1,g*a_2,\dots,g*a_m\}$, and $Bg=\{a_1*g,a_2*g,\dots,a_m*g\}$. since $g*a_i=a_i*g$ for all $i$, we have $gB=Bg$.
+
+Hence, by the definition, every subgroup of an abelian group is normal.
 \subsection{} %d
 
 
