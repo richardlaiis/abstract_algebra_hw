@@ -141,6 +141,8 @@ Since $d$ is greater than all divisors, $d=\gcd{(a,b)}$, it's also the least ele
 \end{proof}
 
 \noindent\rule{\textwidth}{1pt}
+For simplicity, for a generator $c$ of a cyclic group, the order of it I may type it as $|x|$ or $o(x)$, so are the order of groups.
+
 \noindent \textbf{Claim 2: } If x is the generator of cyclic group $H$, then the order of $H$ is the same as $x$ (If one side of this equality is infinite, so is the other).
 \begin{proof}
 Let $|x|=n$ and first consider the case when $n<\infty$. The elements $1,x,x^2,\dots,x^{n-1}$ are distinct since if $x^a=x^b,0\le a<b<n$ then $x^{b-a}=1$, which contradict $n$ being the smallest positive power give the identity. Also, we can write any integer power $t$ as the form $t=ns+r,0\le r<n$. Hence, $x^t=x^{ns+r}=(x^n)^sx^r=x^r\in\{1,x,\dots,x^{n-1}\}$, $x$ can generate all elements in $H$.
@@ -155,11 +157,24 @@ By Theorem 1 there exists integers $a$ and $b$ such that $d=an+bm,d=(m,n)$. Thus
 If $x^m=1$, let $n=|x|$. If $m=0$, $n|m$ is trivially true. Assume $m$ is not zero, by preceeding result, $x^d=1,d=(m,n)$. Since $0< d\le n$ and $n$ is the smallest positive power of $x$ which gives the identity, we must have $d=n$, that is $n|m$ as the claim said.
 \end{proof}
 \noindent \textbf{Claim 4:} Let $G$ be a group, let $x\in G$ and let $a\in\mathbb{Z}-\{0\}$, if $o(x)=n<\infty$, then $o(x^a)=\frac{n}{(n,a)}$. 
+\begin{proof}
+Let $y=x^a,(n,a)=d$ and write $n=db,a=dc$ for suitable $b,c\in\mathbb{Z},b>0$. Since $d$ is the greatest common divisor, $b$ and $c$ are coprime, i.e., $(b,c)=1$
 
+Note that $y^b=x^{ab}=x^{bdc}=(x^n)^c=1$. By Claim 3 applied to $<y>$, we have $|y||b$, Let $k=|y|$. Then $x^{ak}=y^k=1$. 
+
+By Claim 3 applied to $<x>$, $n|ak$,i.e.,$db|dck$, thus $b|ck$. Since $(b,c)=1$, $b|k$. Since $b$ and $|y|$ divides each other, we have $|y|=o(y)=b$,i.e, $o(x^a)=\frac{n}{(n,a)}$.
+\end{proof}
 \noindent \textbf{Claim 5:} Let $H=<x>$. Assume $o(x)=n<\infty$. Then $H=<x^a>$ if and only if $(a,n)=1$.
-
+\begin{proof}
+If $|x|=n<\infty$. Claim 2 says $x^a$ generates a subgroup of $H$ of order $|x^a|$. The subgroup equasl $|H|$ only when $|x|=|x^a|$. By Claim 4, $|x^a|=|x|$ if and only if $\frac{n}{(a,n)}=n$, i.e., $(n,a)=1$.
+\end{proof}
 \noindent\rule{\textwidth}{1pt}
 
+What we wants to prove is $(k,n)=1$ is suffcient and necessary for $g^k$ being a generator of $G$.
+
+For the sufficiency of $(k,n)=1$, by Theorem 1, there must exists $a,b\in\mathbb{Z}$ such that $an+bk=1$. Since, $an+bk=1$, $bk=-an+1$ and $(bt)k=-(at)n+t$. We have $g^{(bt)k}=g^{-(at)n}g^t$, and $(g^k)^{bt}=g^t$. For integer $t\in[1,n]$, $g^k$ can generate the group $\{1,g,g^2,\dots,g^{n-1}\}$.
+
+Claim 5 already proves the necessity. Hence, if $g$ is a generator of $G$, then $g^k$ is a generator of $G$ iff $(n,k)=1$.
 \subsection{} %b
 \subsection{} %c
 
