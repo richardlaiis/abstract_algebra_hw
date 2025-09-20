@@ -6,6 +6,7 @@
 \usepackage{fancyvrb}
 \usepackage{amssymb}
 \usepackage{enumitem}
+\usepackage{amsthm}
 \usepackage[english]{babel}
 
 \usepackage{xeCJK}
@@ -35,10 +36,16 @@
 
 \section{} % 1
 \subsection{} %a
+Take the sum of $14$ and $13$, and it's $27$ modulo $30$, $27\notin G_1$ thus, $G_1$ is not a subgroup of $G$.
 \subsection{} %b
+We can check some necessary properties a subgroup must follow:
+\begin{itemize}
+    \item All elements of $G_2$ are also in $G$, $G_2\in G$
+    \item $\exists e$ such that $\forall g\in G_2,g+e=e+g=g$. There $e=0$.
+    \item $0+0\equiv 0\pmod{30}$, thus, $g^{-1}=0$ when $g=0$. All the other non-zero elements $\in G_2$ can be written as the form $2k,k\in[1,14],k\in\mathbb{N}$. Assume $g=2k$, then there must exists an element $h=2(15-k)\in G_2$ such that $g+k\equiv 0\pmod{30}$. Thus, every element in $G_2$ has an inverse element.
+\end{itemize}
 \subsection{} %c
-
-
+Take the sum of $1$ and $29$, and it's $0$ modulo $30$, $0\notin G_3$ thus, $G_3$ is not a subgroup of $G$.
 
 
 
@@ -47,18 +54,48 @@
 \newpage
 \section{} % 2
 \subsection*{(i)}
+\begin{proof}
+Since $H$ is not empty, we can choose $x,y\in G$.
+
+By the closedness of inverse, the inverse of $x$ exists and belongs to the $H$, let $y=x^{-1}$.
+
+By the closedness of $*$, $x*x^{-1}=e\in H$, where $e$ is the identity element of $H$. Thus, the identity of $H$ exists.
+
+Since $H$ is closed under products, and inverse for each element exists, and the identity for $H$ exists. It's a group and $H\subset G$, so $H$ is a subgroup of $G$.
+\end{proof}
 \subsection*{(ii)}
+For simplicity, I denote the determinant of a n by n matrix $A$ as $|A|$.
 
+Since the determinant of an identity matrix $I_n$ is $1$, $SL_n(\mathbb{R})\ne \emptyset$.
 
+For any matrices $a,b\in SL_n(\mathbb{R})$, suppose $c=ab$, then $c$ must be a real matrix (all entries are real), also, $|c|=|a||b|=1*1=1$, the determinant of $c$ is also $1$. Thus, $c\in SL_n(\mathbb{R})$. Here proves the closedness of matrix multiplication.
 
+\noindent\rule{\textwidth}{1pt}
+\noindent \textbf{Claim 1: } Real $n\times n$ matrix $A$ is invertible if and only if $|A|\ne0$
+\begin{proof}
+Suppose $A$ is invertible, then there exists a matrix $B$ such that $AB=I$. $|I|=|A||B|=1$, $|A|$ can't be zero. 
 
+Assume $|A|\ne 0$, then $B=\frac{1}{|A|}\mathrm{adj}(A)$ (B is also a real $n\times n$ matrix) satisfies $AB=BA=I$ where $\mathrm{adj}(A)$ is the classical adjoint matrix of A and I is the identity matrix.
 
+Thus, $|A|\ne 0$ is necessary and sufficient.
+\end{proof}
+\noindent\rule{\textwidth}{1pt}
 
+By claim 1, every element in $H$ has its inverse due to their non-zero determinant. Suppose A is any matrix in $H$, and its inverse is $A^{-1}$, then $AA^{-1}=A^{-1}A=I,|A||A^{-1}|=|I|=1$, thus, $|A^{-1}|=1$.
+
+Hence, the inverse of A, i.e., $A^{-1}$ is also in $H$. Here the closedness of inverse is proved. By the subgroup criterion proved in 2(i), $\mathrm{SL}_n{\mathbb{R}}$ is a subgroup of $\mathrm{GL}_n{\mathbb{R}}$.
 
 
 \newpage
 \section{} % 3
 \subsection{} %a
+\begin{proof}
+Let's call the two sets $A$ and $B$. $A=\{1,2,\dots,n\},B=\{1,2,\dots,n\}$. And $A$ is mapped to $B$.
+
+Since the map is bijective, for $1$ in $A$, there are $n$ choices to be mapped, after $1$ is mapped, $2$ in $A$ has $n-1$ choices to be mapped, and so on.
+
+Thus, there are $n(n-1)(n-1)\dots1=n!$ types of bijection, i.e., the order of $S_n$ is $n!$.
+\end{proof}
 \subsection{} %b
 \subsection{} %c
 
