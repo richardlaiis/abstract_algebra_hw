@@ -135,6 +135,7 @@ For $a$, $a=\big(\begin{smallmatrix}0 & -1\\1 & 0\end{smallmatrix}\big)$,$a^2=\b
 
 \newpage
 \section{} % 4
+For simplicity, for a generator $c$ of a cyclic group, the order of it I may type it as $|x|$ or $o(x)$, so are the order of groups.
 \subsection{} %a
 \begin{theorem} \textbf{Bézout's identity}
 
@@ -160,7 +161,6 @@ Since $d$ is greater than all divisors, $d=\gcd{(a,b)}$, it's also the least ele
 \end{proof}
 
 \noindent\rule{\textwidth}{1pt}
-For simplicity, for a generator $c$ of a cyclic group, the order of it I may type it as $|x|$ or $o(x)$, so are the order of groups.
 
 \noindent \textbf{Claim 2: } If x is the generator of cyclic group $H$, then the order of $H$ is the same as $x$ (If one side of this equality is infinite, so is the other).
 \begin{proof}
@@ -221,7 +221,11 @@ Hence, $d=(n,b)$, and $d|b$. Since $b$ is a multiple of $d$, $x^b\in\langle x^d\
 Since $|\langle x^d\rangle|=m=|K|$ we have $K=\langle x^d\rangle$. Here proves the uniqueness of subgroup with order $m$.
 
 \subsection{} %c
+$S_3=\{\mathrm{id},(12),(13),(23),(123),(132)\}$ where $\mathrm{id}$ is the identity element, and $(12), (13), (23)$ are the transposition between 1 and 2, 1 and 3, 2 and 3. $(123)$ is the rotation, i.e., 1 goes to 2, 2 goes to 3. $(132)$ is the rotation, i.e., 1 goes to 3, 3 goes to 2.
 
+Assume $S_3$ to be a cyclic group of order $6$, then by claim 2, the order of $S_3$'s generator is also $6$.
+
+$|\mathrm{id}|=1$,$|(12)|=2$,$|(13)|=2$,$|(23)|=2$,$|(123)|=3$,$|(132)|=3$, there's no element with order $6$, which contradicts our previous assumption. Hence, $S_3$ is not a cyclic group!
 
 
 
@@ -237,16 +241,35 @@ Since $|\langle x^d\rangle|=m=|K|$ we have $K=\langle x^d\rangle$. Here proves t
 \section{} % 5
 \subsection{} %a
 \begin{proof}
-    
+First we need to prove that the operation is well-defined, i.e., the choice of reprentatives doesn't affect results. Suppose $xN=aN,yN=bN$ for some $x,y,a,b\in G$, then by the propery of a normal subgroup we have:
+\begin{align*}
+(a*b)N=a(bN)=a(yN)=a(Ny)=(aN)y=(xN)y=x(Ny)=x(yN)=(x*y)N \\
+(aN)\cdot(bN)=(xN)\cdot(yN)
+\end{align*}
+Hence, the well-definedness of the operation is proved.
+
+Suppose $g_1,g_2\in G$ (they are chose arbitrarily). Then since $g_1*g_2\in G$, $(g_1*g_2)N$ is also the left coset of $N$ in $G$, so $g_1N\cdot g_2N=(g_1*g_2)N\in G/N$. The closedness under the operation is proved.
+
+Suppose $g_1,g_2,g_2\in G$ (they are chose arbitrarily). Then $((g_1N\cdot g_2N)\cdot g_3N)=(g_1*g_2)N\cdot g_3N=((g_1*g_2)*g_3)N=(g_1*(g_2*g_3))N=g_1N\cdot(g_2*g_3)N=g_1N\cdot(g_2N\cdot g_3N)$. There the associativity of $G/N$ is proved.
+
+For every element in $G/N$, $eN=N$ is the identity where $e$ is the identity element of $G$, since for any $g\in G$, $eN\cdot gN=(e*g)N=(g*e)N=gN\cdot eN=gN$. Thus, the identity of $G/N$ exists.
+
+For every element in $G$, there exists inverse of it. Hence, for any $g\in G$, $g^{-1}N\cdot gN=(g^{-1}*g)=(g^{-1}*g)N=g^{-1}N\cdot gN=eN=N$, also $g^{-1}N\in G/N$, so $g^{-1}N$ is the inverse of $gN$. Thus, $G/N$ is closed under taking inverse.
+
+From the propositions above, we know $G/N$ is a group under the operation given by $g_1N\cdot g_2N=(g_1*g_2)N$.
+
 \end{proof}
 \subsection{} %b
+Choose $g=(13)$, then $gH={(13),(132)}$ and $Hg={(13),(123)}$. Since $gH\ne Hg$, $H$ is not a normal subgroup of $S_3$.
+
+Here, the multiplication/composition like $\tau\sigma,\tau,\sigma\in H$, means doing $\sigma$ first, then doing $\tau$.
 \subsection{} %c
 Since elements in the abelian group $(G,*)$ are commutative, i.e., for any $a,b\in G$, we have $a*b=b*a$.
 
-Let's choose one arbitrariry elements $g$, consider the subgroup as $B=\{a_1,a_2,\dots,a_m\}$. Then $gB=\{g*a_1,g*a_2,\dots,g*a_m\}$, and $Bg=\{a_1*g,a_2*g,\dots,a_m*g\}$. since $g*a_i=a_i*g$ for all $i$, we have $gB=Bg$.
+Let's choose one arbitrariry elements $g\in G$, consider the subgroup as $B=\{a_1,a_2,\dots,a_m\}$. Then $gB=\{g*a_1,g*a_2,\dots,g*a_m\}$, and $Bg=\{a_1*g,a_2*g,\dots,a_m*g\}$. since $g*a_i=a_i*g$ for all $i$, we have $gB=Bg$.
 
 Hence, by the definition, every subgroup of an abelian group is normal.
 \subsection{} %d
-
+One example is the quaternion group $Q$, $Q={1,i,j,k,-1,-i,-j,-k}$, where $1$ is the identity element, $(-1)^2=1$ and all the other elements are square root of $-1$, such that $i^2=j^2=k^2=ijk=-1$, $(-1)i=-i,(-1)j=-j, (-1)k=-k$, and $ij=k,ji=-k,jk=i,kj=-i,ki=j,ik=-j$. (the remaining relations can be decuced from these relations)
 
 \end{document}
