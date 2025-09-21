@@ -179,11 +179,11 @@ If $x^m=1$, let $n=|x|$. If $m=0$, $n|m$ is trivially true. Assume $m$ is not ze
 \begin{proof}
 Let $y=x^a,(n,a)=d$ and write $n=db,a=dc$ for suitable $b,c\in\mathbb{Z},b>0$. Since $d$ is the greatest common divisor, $b$ and $c$ are coprime, i.e., $(b,c)=1$
 
-Note that $y^b=x^{ab}=x^{bdc}=(x^n)^c=1$. By Claim 3 applied to $<y>$, we have $|y||b$, Let $k=|y|$. Then $x^{ak}=y^k=1$. 
+Note that $y^b=x^{ab}=x^{bdc}=(x^n)^c=1$. By Claim 3 applied to $\langle y\rangle$, we have $|y||b$, Let $k=|y|$. Then $x^{ak}=y^k=1$. 
 
 By Claim 3 applied to $<x>$, $n|ak$,i.e.,$db|dck$, thus $b|ck$. Since $(b,c)=1$, $b|k$. Since $b$ and $|y|$ divides each other, we have $|y|=o(y)=b$,i.e, $o(x^a)=\frac{n}{(n,a)}$.
 \end{proof}
-\noindent \textbf{Claim 5:} Let $H=<x>$. Assume $o(x)=n<\infty$. Then $H=<x^a>$ if and only if $(a,n)=1$.
+\noindent \textbf{Claim 5:} Let $H=\langle x\rangle$. Assume $o(x)=n<\infty$. Then $H=\langle x^a\rangle$ if and only if $(a,n)=1$.
 \begin{proof}
 If $|x|=n<\infty$. Claim 2 says $x^a$ generates a subgroup of $H$ of order $|x^a|$. The subgroup equasl $|H|$ only when $|x|=|x^a|$. By Claim 4, $|x^a|=|x|$ if and only if $\frac{n}{(a,n)}=n$, i.e., $(n,a)=1$.
 \end{proof}
@@ -195,6 +195,31 @@ For the sufficiency of $(k,n)=1$, by Theorem 1, there must exists $a,b\in\mathbb
 
 Claim 5 already proves the necessity. Hence, if $g$ is a generator of $G$, then $g^k$ is a generator of $G$ iff $(n,k)=1$.
 \subsection{} %b
+
+\noindent\rule{\textwidth}{1pt}
+\noindent\textbf{Claim 6: }Every subgroup of H is cyclic. More precisely, if $K\le H$, then either $K=\{1\}$ or $K =\langle x^d\rangle$, where $d$ is the smallest positive integer such that $x^d\in K$.
+\begin{proof}
+Let $K\le H$. If $K=\{1\}$, the claim is true for the subgroup. Assume $K\ne \{1\}$. Thus $\exists a\ne 0$ such that $x^a\in K$. Since $K$ is a group, $x^{-a}=(x^a)^{-1}\in K$, $K$ always contains some positive power of $x$. Define $P$ as:
+$$P=\{b|b\in\mathbb{Z}^+\ \mathrm{and}\ x^b\in K\}$$
+\end{proof}
+By proposition above, $P$ is obviously a nonempty set of positive integers. Also by well ordering principle, $P$ has a minimum element $d$. Because $K$ ia a subgroup and $x^d\in K$, cyclic group $\langle x^d\rangle\le K$. All elements in $K$ have the form $x^a$ for some integers $a$, we can written it as $a=qd+r$ where $0\le r < d$.
+
+Then $x^r=x^a(x^d)^{-q}\in K$ since bot $x^a$ and $x^d$ are in $K$. The only possibility of $r$ is zero since $d$ is the minimum element of $P$. Thus, $x^a=(x^d)^q\in \langle x^d\rangle$. We now have $K\le \langle x^d\rangle$.
+
+Hence, $K=\langle x^d\rangle$ and the claim is proved.
+
+\noindent\rule{\textwidth}{1pt}
+
+Let $d=\frac{n}{m}$ and apply claim 4, we obtain that $\langle x^d\rangle$ is a subgroup of order $m$, which proves the existence of a subgroup of order $m$.
+
+Suppose $K$ is any subgroup of $G$ of order $m$. By claim 6 we have $K=\langle x^b\rangle$ where $b$ is the smallest positive integer such that $x^b\in K$.
+
+By claim 4:
+$$\frac{n}{d}=m=|K|=|x^b|=\frac{n}{\gcd{(n,b)}}$$
+
+Hence, $d=(n,b)$, and $d|b$. Since $b$ is a multiple of $d$, $x^b\in\langle x^d\rangle$. So $K=\langle x^b\rangle\le \langle x^d\rangle$.
+Since $|\langle x^d\rangle|=m=|K|$ we have $K=\langle x^d\rangle$. Here proves the uniqueness of subgroup with order $m$.
+
 \subsection{} %c
 
 
