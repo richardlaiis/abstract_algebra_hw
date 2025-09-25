@@ -106,7 +106,7 @@ For the closedness, if $f,g\in S_n$, then their composition (written as $(f\circ
 
 For the associativity, suppose we have three bijections $f,g,h\in S_n$, take any integer $x\in{1,2,\dots,n}$. Then $f\circ (g\circ h)(x)=f\circ g(h(x))=f(g(h(x)))$ and $(f\circ g)\circ h(x)=(f\circ g)(h(x))=f(g(h(x)))$. The composition of bijections are associative.
 
-The identity element in $S_n$ is the mapping $\mathrm{id}:\{1,2,\dots,n\}\rightarrow\{1,2,\dots,n\}$ such that for every element $\tau$ in $S_n$, we have $\mathrm{id}\circ\tau(x)=\tau\circ\mathrm{id}(x)$, where $x\in\{1,2,\dots,n\}$.
+The identity element in $S_n$ is the mapping $\mathrm{id}$ where $\mathrm{id}$ maps $i$ to $i$ for all $i\in{1,2,\dots,n}$, such that for every element $\tau$ in $S_n$, we have $\mathrm{id}\circ\tau(x)=\tau\circ\mathrm{id}(x)$, where $x\in\{1,2,\dots,n\}$.
 
 Since every element in $S_n$ is a bijective mapping, by definition, we must can find an inverse operation/element for every element in $S_n$.
 \end{proof}
@@ -135,7 +135,7 @@ For $a$, $a=\big(\begin{smallmatrix}0 & -1\\1 & 0\end{smallmatrix}\big)$,$a^2=\b
 
 \newpage
 \section{} % 4
-For simplicity, for a generator $c$ of a cyclic group, the order of it I may type it as $|x|$ or $o(x)$, so are the order of groups.
+For simplicity, for a generator $c$ of a cyclic group, the order of it I may type it as $|x|$ or $o(x)$, so are the order of groups. And the greatest common divisor of two positive integer $a,b$ is denoted as $(a,b)$ or $\gcd{(a,b)}$.
 \subsection{} %a
 \begin{theorem} \textbf{Bézout's identity}
 
@@ -260,7 +260,7 @@ From the propositions above, we know $G/N$ is a group under the operation given 
 
 \end{proof}
 \subsection{} %b
-Choose $g=(13)$, then $gH={(13),(132)}$ and $Hg={(13),(123)}$. Since $gH\ne Hg$, $H$ is not a normal subgroup of $S_3$.
+Choose $g=(13)$, then $gH=\{(13),(132)\}$ and $Hg=\{(13),(123)\}$. Since $gH\ne Hg$, $H$ is not a normal subgroup of $S_3$.
 
 Here, the multiplication/composition like $\tau\sigma,\tau,\sigma\in H$, means doing $\sigma$ first, then doing $\tau$.
 \subsection{} %c
