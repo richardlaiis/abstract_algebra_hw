@@ -50,13 +50,65 @@ Suppose the isomorphism is $\varphi: G\rightarrow H$ and $G=\langle x\rangle\inf
 
 $(\mathbb{Z}/15\mathbb{Z})^{\times}=\{\bar{1},\bar{2},\bar{4},\bar{7},\bar{8},\bar{11},\bar{13},\bar{14}\}$ and $\mathbb{Z}/8\mathbb{Z}=\{\bar{0},\bar{1},\bar{2},\bar{3},\bar{4},\bar{5},\bar{6},\bar{7}\}$. Since $\mathbb{Z}/8\mathbb{Z}$ is a cyclic group of order $8$ under addition, and $(\mathbb{Z}/15\mathbb{Z})^{\times}$ is not cyclic, they are not isomorphic.
 \subsection{} % 1b
-\subsection{} % 1c
-\subsection{} % 1d
-\subsection{} % 1e
-\subsection{} % 1f
-\subsection{} % 1g
-\subsection{} % 1h
+Both group are cyclic groups with order 4, so they are isomorphic. Define $u_4=\{z\in \mathbb{C}\backslash\{0\}:z^4=1\}=\{-1, 1, -i, i\}$. Define:
+$$\varphi:\mathbb{Z}/4\mathbb{Z}\rightarrow u_4,\varphi{(\bar{k})}=i^{k}$$.
 
+Suppose $a,b\in\bar{k}$ then $(a-b)$ is a multiple of $4$, so $i^{a}=i^b$. Thus $\varphi$ is well-defined. For simplicity, I denote the member of $\bar{k}$ class as $[k]$. For any classes $a,b$, we have $\varphi([a]+[b])=\varphi([a+b])=i^{a+b}=i^a i^b=\varphi([a])\varphi([b])$, thus, this is an isomorphism.
+
+Since $\varphi([k])=1$ if and only if $i^k=1, k\equiv0\pmod{4}$, so $\ker\varphi={[0]}$, only contains the identity element in $\mathbb Z/4\mathbb Z$, so $\varphi$ is injective, also the cardinality of the two groups are the same, so $\varphi$ must be a bijection, $\varphi$ is an isomorphism.
+\subsection{} % 1c
+Define:
+$$\varphi:\mathbb{Z}\rightarrow 3\mathbb Z,\varphi(x)=3x,x\in\mathbb Z$$ 
+
+Since $\varphi(x+y)=3x+3y=\varphi(x)+\varphi(y)$, it's trivially a homomorphism. Also $\ker{\varphi}=\{0\}$ where $0$ is the identity of $\mathbb Z$, also the only element mapped to $0$ (the identity in $3\mathbb Z$), thus it's injective. Also for every element $y$ in $3\mathbb Z$, we can always find an corresponding element $\frac{y}{3}$ in $\mathbb Z$ (since $y$ is divisible by $3$), so $\varphi$ is surjective. Hence, $\varphi$ is one isomorphism.
+
+\subsection{} % 1d
+The second group contains infinite elements, but all the elements have finite order, hence, it's not cyclic. Since $\mathbb Z$ with additive operation is infinitly cyclic, the two groups can't be isomorphic.
+\subsection{} % 1e
+$D_3=\{e,s,r,r^2,sr,sr^2\}$ and $S_3=\{e,(12),(23),(13),(123),(132)\}$, we can define $\varphi:D_3\rightarrow S_3$ by:
+$$\begin{cases}s\mapsto (12) \\ r\mapsto (123)\end{cases}$$
+
+This is one isomorphism. Instead of checking all 36 pairs, we use generators and relations of $D_3$ to check the homomorphism. Since $\varphi(r^3)=\varphi(r)^3=(123)(123)(123)=e,\varphi(s^2)=\varphi(s)^2=(12)(12)=e,\varphi(srs^{-1})=\varphi(s)\varphi(r)\varphi(s^{-1})=(12)(123)(12)=(132)=(123)^{-1}$, $\varphi$ preserves the structure of $D_3$.
+
+Since $\ker\varphi=\{e\}$ and all permutations in $S_3$ can be generated using operations (flip and rotations) in $D_3$, i.e., $\varphi{(D_3)}=S_3$. Thus, $\varphi$ is bijective. $\varphi$ is an isomorphism.
+
+
+\subsection{} % 1f
+Since $|S_4|=4!=24$ and $|D_4|=|\{e,s,r,r^2,r^3,rs,r^2s,r^3s\}|=8$, their order are different, there can't be an bijection. Hence, they are not isomorphic.
+\subsection{} % 1g
+$Q=\{1, -1, i, j, k, -i, -j, -k\}$ and $T=\{1,a,a^2,a^3,b,ab,a^2b,a^3b\}$
+
+An isomorphism is defined as:
+$$f:Q\rightarrow T, f(i)=a,f(j)=b$$
+
+Let's check if $f$ a homomorphism, preserving the relations given in $T$:
+\begin{align*}
+f(-1)=f(i^2)=(f(i))^2=a^2=f(j^2)=(f(j))^2=b^2 \\
+f(k)=f(ij)=ab \\
+f(-k)=f(ji)=f(j)f(i)=ba \\
+f(-k)=f(-1)f(k)=a^3b \\
+ba=a^3b \\
+f(i^4)=f(1)=(f(i))^4=a^4=1
+\end{align*}
+
+Thus, since $f$ preserves the relations in $T$, it's a homomorphism. Also:
+\begin{align*}
+f(1)=1 \\
+f(-1)=a^2 \\
+f(i)=a \\
+f(j)=b \\
+f(k)=f(ij)=ab\\
+f(-i)=f(-1)f(i)=a^3\\
+f(-j)=f(-1)f(j)=a^2b\\
+f(-k)=f(-1)f(k)=a^3b
+\end{align*}
+
+The homomorphism $f$ is an 1 to 1 function and all elements in $T$ can be mapped from one unique element in $Q$. Hence $f$ is bijective, and $f$ is an isomorphism!
+
+\subsection{} % 1h
+They are isomorphic. Since any subgroups of a cyclic group is cyclic. Let $G=\langle x\rangle$, and nontrivial subgroup has the form $H=\langle x^m\rangle$ for some integer $m$. Define:
+$$\varphi:G\rightarrow H,\varphi(g)=g^{m},g\in G$$ 
+Since $\varphi(ab)=(ab)^{m}=a^mb^m=\varphi(a)\varphi(b),\forall a,b\in G$, it's a homomorphism. If $\varphi(x^k)=e, x^{km}=e$, the only possible $k$ is zero, so $\ker\varphi=e$, where $e$ is the identity element in $G$ and $H$, $\varphi$ is injective. Also every element in $H$ has the form $(x^m)^k=\varphi(x^k)$, it's also surjective. Thus, $\varphi$ is an isomorphism between $G$ and $H$.
 \newpage
 \section{} %2
 Suppose $\big(\begin{smallmatrix} a & -b\\b & a\end{smallmatrix}\big)$ and $\big(\begin{smallmatrix} c & -d\\d & c\end{smallmatrix}\big)$ are two elements in $G$. Then we have:
