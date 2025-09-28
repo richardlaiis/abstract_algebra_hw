@@ -14,7 +14,7 @@
 \usepackage{xeCJK}
 \setCJKmainfont{Noto Serif CJK TC}
 
-\newcommand{\mytitle}{Abstract algebra I Homework 3}
+\newcommand{\mytitle}{Abstract algebra I Homework 3 uwu}
 \newcommand{\myauthor}{B13902022 賴昱錡}
 
 % to fit the hw format
@@ -58,5 +58,28 @@ $(\mathbb{Z}/15\mathbb{Z})^{\times}=\{\bar{1},\bar{2},\bar{4},\bar{7},\bar{8},\b
 \newpage
 \section{} %4
 
+\noindent\rule{\textwidth}{1pt}
+
+\textbf{Claim: } Left cosets are in bijection via left multiplication. In other words, given a group $G$, a subgroup $H$, and two left cosets $xH, yH$ of $H$, where $x,y\in G$, left multiplication by $yx^{-1}$ creates a bijection between $xH$ and $yH$.
+
+\begin{proof}
+We can prove the correctness, injectivity, surjectivity of the mapping. Suppose $x,y$ are in $G$.
+
+First note that if $g=xh,\ h\in H,\ x\in G$ then $(yx^{-1})g=yh$, thus the left multiplication of $yx^{-1}$ can map any elements in $xH$ to $yH$. Here proves the correctness.
+
+Given two distinct elements $xh_1, xh_2\in xH,\ h_1,h_2\in H$, $(yx^{-1})xh_1=yh_1$ and $(yx^{-1})xh_2=yh_2$ are also distinct since if $yh_1=yh_2$ then we will get $xh_1=xh_2$ (by cancelling $yx^{-1}$), contradiction appeared. Thus, the map is injective.
+
+Every element in $yH$ takes the form as $yh=(yx^{-1})xh,h\in H$, it arises as the image of left multiplication by $yx^{-1}$. Thus, the map is surjective. From these properties, we know left cosets are in bijection via left multiplication.
+\end{proof}
+
+\noindent\rule{\textwidth}{1pt}
+
+Take any $g\in G$ and $n\in N$. Since $\phi$ is a homomorphism and $H$ is abelian, we have:
+\begin{align*}
+    \phi(gng^{-1}n^{-1}) &=\phi(g)\phi(n)\phi(g^{-1})\phi(n^{-1}) \\
+    &= \phi(g)\phi(g^{-1})\phi(n)\phi(n^{-1}) \\
+    &= \phi(gg^{-1})\phi(nn^{-1})=e_{H}
+\end{align*}
+Where $e_{H}$ is the identity element of $H$, thus, $gng^{-1}n^{-1}\in\mathrm{ker\phi}$. By hypothesis, $\mathrm{ker\phi}\in N$, so $gng^{-1}n^{-1}\in N$. Since $gng^{-1}=(gng^{-1}n^{-1})n\in N$, we can conclude that $gNg^{-1}\subset N\ \forall g\in G$. Since the left coset, right coset and the conjugate have the same size with subgroup, i.e. $|gNg^{-1}|=N$, $gNg^{-1}=N\ \forall g\in G$ is true, and $N$ is normal subgroup of $G$. By the claim above, we can easily know the size of left coset of subgroup $N$ is the same as $N$, so is the right coset (The bijectivity is also proved in the same way as claim.). Thus, $|gNg^{-1}|=N$, which implies $gNg^{-1}=N$, $N$ is the normal subgroup of $G$.
 
 \end{document}
