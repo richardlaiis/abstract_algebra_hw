@@ -13,7 +13,7 @@
 
 \usepackage{xeCJK}
 \setCJKmainfont{Noto Serif CJK TC}
-
+\DeclareMathOperator{\lcm}{lcm}
 \newcommand{\mytitle}{Abstract algebra I Homework 4}
 \newcommand{\myauthor}{B13902022 賴昱錡}
 
@@ -37,6 +37,37 @@
 \maketitle
 
 % \noindent\rule{\textwidth}{1pt}
+\section{}
+\subsection{}
+Define the homomorphism $\phi$ as below, where the congruent class modulo $p$ is denoted as $[x]_p$:
+$$\phi:\mathbb{Z}/p\mathbb{Z}\times \mathbb{Z}/q\mathbb{Z}\rightarrow \mathbb{Z}/pq\mathbb{Z}\ \phi(([x]_p,[x]_q))=[x]_{pq}$$
+Suppose $[x]_p=[y]_p,[x]_q=[y]_q$, then $\phi(([x]_p,[x]_q))=[x]_{pq}$. Since $p|(x-y)$ and $q|(x-y)$, we have $pq|(x-y), [x]_{pq}=[y]_{pq}$. Hence, $[x]_{pq}=[y]_{pq}=\phi(([y]_{p},[y]_{q}))=\phi(([x]_p,[x]_q))$. Thus $\phi$ is well-defined.
 
+$\phi(([x]_p,[x]_q)+([y]_p,[y]_q))=\phi(([x+y]_p,[x+y]_q))=[x+y]_{pq}=[x]_{pq}+[y]_{pq}=\phi(([x]_p,[x]_q))+\phi(([y]_p,[y]_q))$, so $\phi$ is a homomorphism.
+
+Suppose $\phi([x]_p,[x]_q)=0$, $x$ must be multiple of $pq$, hence, $([x]_p,[x]_q)=([0]_p,[0]_q)$. Since $\ker{\phi}=\{([0]_p,[0]_q)\}$, $\phi$ is injective, and obviously $|\mathbb{Z}/p\mathbb{Z}\times \mathbb{Z}/q\mathbb{Z}|=|\mathbb{Z}/pq\mathbb{Z}|=pq$, $\phi$ is also surjective. By proposition above, $\phi$ is an isomorphism.
+\subsection{}
+Let $G=\langle g \rangle,H=\langle h\rangle, |G|=n, |H|=m$. If $G\times H$ is cyclic, there exists an integer $d$ such that $(g,h)^d=(e_G,e_H)$. Since $G,H$ are cyclic, we have $n|d,m|d\rightarrow\lcm{(n,m)}|d$. The minimum integer we can choose for $d$ is $\lcm{(n,m)}$, it's also the order of $G\times H$. Since $|G\times H|=nm=\lcm{(n,m)}$, we conclude that $\gcd{(n,m)}=1$.
+
+Suppose $\gcd{(n,m)}=1$, $\langle (g,h)\rangle$ can generate $G\times H$, since the least integer $d$ such that $(g,h)^d=(e_G,e_H)$ is $\lcm{(n,m)}=nm$, which equals to the order of $G\times H$. Thus, $G\times H$ is cyclic if and only if $\gcd{(|G|,|H|)}=1$.
+\subsection{}
+$S_3=(e,(12),(13),(23),(123),(132))$, the only proper subgroups are 
+$$\{e\}, \{e,(12)\}, \{e,(13)\},\{e, (23)\},\{e,(123),(132)\}$$
+ Since every two distinct subgroups follow the property: their orders are coprime and both are cyclic, their direct product should also be cyclic group by the result of last subproblem. But $S_3$ is not cyclic, thus it's not direct product of any of its proper subgroups.
+
+
+\section{}
+
+
+\section{}
+\subsection{}
+\subsection{}
+\subsection{}
+
+
+\section{}
+\subsection{}
+\subsection{}
+\subsection{}
 
 \end{document}
