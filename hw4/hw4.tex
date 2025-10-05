@@ -69,13 +69,35 @@ Suppose there exists an isomorphism $\varphi$ from $H$ to $G$, for any element $
 
 \section{}
 \subsection{}
+By definition, the orbit of $\langle (12)\rangle=\{e,(12)\}$ is $\{\{1,2\},\{3\},\{4\}\}$, and the orbit of $\langle (123)\rangle=\{e,(123),(132)\}$ is $\{\{1,2,3\},\{4\}\}$. $V=\{e,(12)(34),(13)(24),(14)(23)\}$, its orbit is $\{\{1,2,3,4\}\}$.
+
 \subsection{}
+$C_4=\langle (1234)\rangle$. It's a subgroup of $S_4$, since every elements $\sigma^i\in C_4$ for some integer $i$ in $\{0,1,\dots,4\}$, it has a inverse $\sigma^{4-i}$ ($\sigma^0$ is considered as identity) in $C_4$. Also $C_4$ is clearly closed under multiplication. Its orbit is also $\{\{(1234)\}\}$.
 \subsection{}
+Suppose $\sigma\in S_n$, where $n\ge 3$. If $(12)\sigma=\sigma(12)$, then $1,2$ are either fixed or swapped. If $(23)\sigma=\sigma(23)$, then $3,4$ are also either fixed or swapped. If $\sigma$ commutes with $(12)$ and $(23)$, then $1,2,3$ must be the fixed points of $\sigma$. By simple induction, if $\sigma$ commutes with $(12),(23),(34),\dots,(n-1,n)$, then $1,2,\dots,n$ are all fixed points of $\sigma$. Hence $\sigma$ must be the identity of $S_n$, i.e., $Z(S_n)=\{e\}$. Since $4\ge3$, $Z(S_4)=\{e\}$ is trivial.
 
 
 \section{}
 \subsection{}
+Define for each $g\in G$, the map:
+$$\varphi_g: S\rightarrow S,\varphi_g(s)=g\cdot s$$. Then $\varphi_g$ is a permutation of $S$ (i.e. a bijection). Indeed, its inverse is $\varphi_{g^{-1}}$ because for every $s\in S$:
+$$\varphi_g(\varphi_{g^{-1}}(s))=g\cdot(g^{-1}\cdot s)=s$$
+And similarily $\varphi_{g^{-1}}(\varphi_{g}(s))=s$. Thus, $\varphi_g$ is bijective, $\varphi_g\in \mathrm{Perm}(S)$. 
+
+Now define $f:G\rightarrow \mathrm{Perm}(S),\ f(g)=\varphi_g$, since $f(gh)(s)=\varphi_{gh}(s)=(gh)\cdot s$ and $(f(g)\circ f(h))(s)=g\cdot (h\cdot s)=(gh)\cdot s$. Hence, $G\rightarrow \mathrm{Perm}(S)$ is a homomorphism.
+
 \subsection{}
+By last subproblem, $G\rightarrow\mathrm{Perm}(S)$ induced a homomorphism $\phi$.
+$$\phi:G\rightarrow\mathrm{Perm}(S),\phi(x)(gH)=x\cdot(gH)=(xg)H$$
+
+$x\in\ker{\phi}$ if and only if $\phi(x)(gH)=gH\forall g\in G$, i.e., $x\cdot(gH)=(xg)H=gH$. $(xg)H=gH$ must holds for all $g\in G$. Choose $g=e$, we have $xH=H$, by the property of coset, $x\in H$. Thus, $\ker{\phi}\subseteq H$.
+
 \subsection{}
+$|G|/|H|=[G:H]=n$. Let $G$ acts on the set of left cosets of $H$ in $G$, which we will denote as $X=\{gH|g\in G\}$, by 4(a) and 4(b), here induces a homomorphism.
+$$\phi:G\rightarrow\mathrm{Perm}(X),\phi(x)(gH)=x\cdot(gH)=(xg)H,gH\in X$$
+
+By the first isomorphism theorem, $\ker{\phi}\triangleleft G$, also by 4(b) $\ker{\phi}\subseteq H$. Since no nontrivial normal subgroup of $G$ is contained in $H$, we concludes that $\ker\phi=\{e\}$.
+
+The first isomorphism theorem states that $G/\ker{\phi}\cong\mathrm{Im}{\phi}$, also $G/\{e\}\cong G$, hence we have $G\cong\mathrm{Im}{\phi}$. Since the image of $\phi$ are some of the permutations on $X$ where $|X|=n$, clearly $G$ is isomorphic to a subgroup of $S_n$.
 
 \end{document}
