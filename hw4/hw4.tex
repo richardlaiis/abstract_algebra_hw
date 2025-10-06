@@ -80,9 +80,9 @@ Suppose $\sigma\in S_n$, where $n\ge 3$. If $(12)\sigma=\sigma(12)$, then $1,2$ 
 \section{}
 \subsection{}
 Define for each $g\in G$, the map:
-$$\varphi_g: S\rightarrow S,\varphi_g(s)=g\cdot s$$. Then $\varphi_g$ is a permutation of $S$ (i.e. a bijection). Indeed, its inverse is $\varphi_{g^{-1}}$ because for every $s\in S$:
-$$\varphi_g(\varphi_{g^{-1}}(s))=g\cdot(g^{-1}\cdot s)=s$$
-And similarily $\varphi_{g^{-1}}(\varphi_{g}(s))=s$. Thus, $\varphi_g$ is bijective, $\varphi_g\in \mathrm{Perm}(S)$. 
+$$\varphi_g: S\rightarrow S,\varphi_g(s)=g\cdot s$$. Then $\varphi_g$ is a permutation of $S$ (i.e. a bijection).
+
+The inverse of $\varphi_{g}$ is $\varphi_{g^{-1}}$, for every $s\in S$, $\varphi_{g}(\varphi_{g^{-1}}(s))=s$ (Bijectivity). Also for any $g\in G, s_1,s_2\in S$, if $\varphi_g(s_1)=\varphi_g(s_2)$, then $\varphi_{g^{-1}}({\varphi_g(s_1)})=\varphi_{g^{-1}}(\varphi_g(s_2))\Rightarrow s_1=s_2$ (injectivity). Thus, $\varphi_g$ is bijective, $\varphi_g\in \mathrm{Perm}(S)$. 
 
 Now define $f:G\rightarrow \mathrm{Perm}(S),\ f(g)=\varphi_g$, since $f(gh)(s)=\varphi_{gh}(s)=(gh)\cdot s$ and $(f(g)\circ f(h))(s)=g\cdot (h\cdot s)=(gh)\cdot s$. Hence, $G\rightarrow \mathrm{Perm}(S)$ is a homomorphism.
 
