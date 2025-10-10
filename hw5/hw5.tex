@@ -37,6 +37,33 @@
 \maketitle
 
 % \noindent\rule{\textwidth}{1pt}
+\section{}
+\subsection{}
+Suppose that for any two distinct elements $s,t\in S$, we have $O(s)\ne O(t)$ and $O(s)\cap O(t)\ne\emptyset$. There exists $g_1,g_2\in G$ such that $g_1s=g_2t\Rightarrow t=g_2^{-1}g_1s$, hence, for every $g\in G$, we have $gt=gg_2^{-1}g_1s\in O(s)$, i.e., there's always one corresponding element in $O(s)$ for every element in $O(t)$, similarity we have $gs=gg_1^{-1}g_2t\in O(t)$, so $O(s)=O(t)$, which contradicts our assumption. Thus $O(s)\ne O(t)$ \textbf{and} $O(s)\cap O(t)\ne\emptyset$ is impossible, we either have $O(s)=O(t)$ or $O(s)\cap O(t)=\emptyset$.
+\subsection{}
+$e\in G_s$ trivially, also for any $u,v\in G_s$, $(uv)s=us=s\Rightarrow (uv)\in G_s$, also $us=s,s=u^{-1}s\Rightarrow u^{-1}\in G_s$, thus $G_s$ is closed under taking products and inverses, $G_s\le G$.
+
+Let the map be $\phi$, if $g_1G_s=g_2G_s$ and $g_1,g_2\in G$, then $g_2^{-1}g_1G_s=G_s\Rightarrow g_2^{-1}g_1\in G_s$. Hence, $g_2^{-1}g_1s=s, g_1s=g_2s, \phi(g_1G_s)=\phi(g_2G_s)$, we know $\phi$ is well-defined.
+
+To prove the injectivity of $\phi$, if $g_1s=g_2s$ ($g_1,g_2\in G$), then $g_1^{-1}g_2s=s\Rightarrow g^{-1}g_2\in G_s$, so $g^{-1}g_2G_s=G_s$, we have $g_1G_s=g_2G_s$.
+
+For every $u\in O(s)$, it can be written as the form: $u=gs$ for some $g\in G$, so $u=\phi(gG_s)$. $\phi$ is surjective. Since $\phi$ is both injective and surjective, $\phi$ is a well-defined bijection.
+\subsection{}
+By the result in $(b)$, we know $|G:G_s|=|G|/|G_s|=|O(s)|$, hence $|G_s||O(s)|=|G|$.
+
+\section{}
+\subsection{}
+\subsection{}
+\subsection{}
+
+\section{}
+\subsection{}
+\subsection{}
+\subsection{}
+\subsection{}
+
+\section{}
+
 
 
 \end{document}
