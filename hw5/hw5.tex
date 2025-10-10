@@ -58,9 +58,17 @@ By the result in $(b)$, we know $|G:G_s|=|G|/|G_s|=|O(s)|$, hence $|G_s||O(s)|=|
 
 \section{}
 \subsection{}
+Note that $HK$ is the union of left cosets of $K$, namely, $HK=\bigcup_{h\in H}hK$. Suppose $h_1K=h_2K$, then $h_2^{-1}h_1K=K\Rightarrow h_2^{-1}h_1\in K\Rightarrow h_2^{-1}h_1\in H\cap K$. $H\cap K$ is trivially a subgroup of $H$, since for any $u,v\in H\cap K$, then $uv\in H$ and $uv\in K$, $u^{-1}\in H$ and $u^{-1}\in K$, we have $uv,u^{-1}\in H\cap K$, also $H\cap K$ contains the identity, thus $H\cap K\le H$.
+
+Since $h_2^{-1}h_1\in H\cap K$ implies $h_1(H\cap K)=h_2(H\cap K)$, the number of left cosets of $K$ equals to the left cosets of $H\cap K$ in $H$. By Lagrange's Theorem, the number is $\frac{|H|}{|H\cap K|}$, also each left cosets of $K$ have the size of $|K|$. Hence, $|HK|=\frac{|H||K|}{|H\cap K|}$.
 \subsection{}
+If $G=HK$, then $|G|=|HK|=\frac{|H||K|}{|H\cap K|}$ by (a). We obtain that $[G:H\cup K]=\frac{|H||K|}{|H\cap K|^2}$ and $[G:H][G:K]=\frac{|G|^2}{|K||H|}=\frac{|H||K|}{|H\cap K|^2}$. Thus, $[G:H\cup K]=[G:H][G:K]$.
+
+\textbf{not finish yet!!!}
 \subsection{}
 If $HK=KH$, every element $hk$ in $HK$ can be written as $k^{'}h^{'}$ for some $k,k^{'}\in K,h,h^{'}\in H$. Clearly, $HK$ contains $e$, the identity element in $G$. Suppose $u,v\in HK=KH$, $u=h_1k_1, v=k_2h_2$, $uv=h_1k_1k_2h_2$ ($h_1,h_2\in H$ and $k_1,k_2\in K$), let $k_1k_2=k_3\in K$, then $uv=h_1k_3h_2=h_1hk=h'k\in HK$ for some $h,h^{'}\in H, k\in K,hk=k_3h_2, h^{'}=h_1h$, thus $HK$ is closed under taking products. Also, $u^{-1}=k_1^{-1}h_1^{-1}$ and every element in $KH$ must can be written as $ab$ for some $,a\in H,b\in K$, since $k^{-1}\in K,h^{-1}\in H$, so $u^{-1}\in HK$, $HK$ is closed under taking inverse. In conclusion, $HK\le G$ if $HK=KH$.
+
+Conversely, if $HK\le G$. Obviously, $K\in HK$ and $H\in HK$ by the closure property of subgroups, $KH\subseteq HK$. Suppose $hk\in HK$, since $HK$ is a subgroup of $G$, let $a=h_1k_1$ be its inverse, then $hk=(h_1k_1)^{-1}=k_1^{-1}h_1^{-1}\in KH$. Since $HK$ and $KH$ contains each other, we have $HK=KH$. So $HK$ is a subgroup of $G$ if and only if $HK=KH$.
 
 % lack of -> proposition
 \subsection{}
