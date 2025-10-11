@@ -53,8 +53,17 @@ By the result in $(b)$, we know $|G:G_s|=|G|/|G_s|=|O(s)|$, hence $|G_s||O(s)|=|
 
 \section{}
 \subsection{}
+If $G$ is a finite group, then for any element $a\in G$, the element of $\mathrm{class}(a)$ and the left cosets of centralizer $C_G(a)$ form a bijection. Since for any two elements $u,v$ belonging to the same coset (so $u=vz$ for some $z\in C_G(a)$) give the same element when conjugating $a$: ($z$ commutes with every element in $G$)
+$$u^{-1}au=(vz)^{-1}a(vz)=z^{-1}v^{-1}avz=z^{-1}zv^{-1}av=v^{-1}av$$
+also, every cosets can be written as the form $gC_G(a)$ for some $g\in G$, it must can be mapped from $g^{-1}ag$, hence, there's one-to-one correspondence between conjugacy class of $a$ and the cosets of $C_G(a)$. (btw, $C_G(a)$ is trivially a subgroup of $G$, since it contains identity, also suppose $x,y\in C_G(a)$, then $(xy)^{-1}axy=a, xax^{-1}=a$, it's closed under group operations.)
+
+Thus, the number of elements in conjugacy class of $a$ is the index $[G:C_G(a)]$ of the centralizer $C_G(a)$ in $G$, also the given conjugacy classes are disjoint, so $|G|=\displaystyle\sum^n_{i=1}[G:C_G(h_i)]=\displaystyle\sum^n_{i=1}\frac{|G|}{|C_G(h_i)|}$.
+
 \subsection{}
+Observe that each of the elements in $Z(G)$ will forms a conjugacy class containing only itself, this is trivial by definition, if $z\in Z(G)$, then $g^{-1}zg=zg^{-1}g=z\forall g\in G$, so:
+$$|G|=\displaystyle\sum^n_{i=1}\frac{|G|}{|C_G(h_i)|}=|Z(G)|+\displaystyle\sum^m_{i=1}\frac{|G|}{|C_G(h_i)|}$$
 \subsection{}
+Since the order of any conjugacy class divides the $|G|$ (because $|\mathrm{class(h_i)}|=\frac{|G|}{|C_G(h_i)|}$), so the order of them are some power of $p$, hence, $|G|=|Z(G)|+\displaystyle\sum^m_{i=1}p^{k_i}$, where $0<k_i<n$. From this we found that $p$ must divides $|Z(G)|$, so $|Z(G)|>1$.
 
 \section{}
 \subsection{}
