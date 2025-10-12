@@ -71,19 +71,54 @@ Note that $HK$ is the union of left cosets of $K$, namely, $HK=\bigcup_{h\in H}h
 
 Since $h_2^{-1}h_1\in H\cap K$ implies $h_1(H\cap K)=h_2(H\cap K)$, the number of left cosets of $K$ equals to the left cosets of $H\cap K$ in $H$. By Lagrange's Theorem, the number is $\frac{|H|}{|H\cap K|}$, also each left cosets of $K$ have the size of $|K|$. Hence, $|HK|=\frac{|H||K|}{|H\cap K|}$.
 \subsection{}
-If $G=HK$, then $|G|=|HK|=\frac{|H||K|}{|H\cap K|}$ by (a). We obtain that $[G:H\cup K]=\frac{|H||K|}{|H\cap K|^2}$ and $[G:H][G:K]=\frac{|G|^2}{|K||H|}=\frac{|H||K|}{|H\cap K|^2}$. Thus, $[G:H\cup K]=[G:H][G:K]$.
+To prove the inequality, it sufficies to show that the map:
+$$G/(H\cap K)\rightarrow G/H\times G/K\mathrm{\ given\ by\ }g(H\cap K)\mapsto (gH,gK)$$
+is well-defined and injective, since the injectivity implies the size of $G/(H\cap K)$ is less than or equal to the size of $G/H\times G/K$, which is $|G:H||G:K|$. Suppose $g_1(H\cap K)=g_2(H\cap K)$ ($g_1,g_2\in G$), then $g_2^{-1}g_1(H\cap K)=(H\cap K)$ implies $g_2^{-1}g_1\in(H\cap K)$. So $g_2^{-1}g_1H=H\Rightarrow g_1H=g_2H$ and $g_2^{-1}g_1K=K\Rightarrow g_1K=g_2K$, we have $(g_1H, g_1K)=(g_2H,g_2K)$, hence the map is well defined.
 
-\textbf{not finish yet!!!}
+Let $(g_1H, g_1K)=(g_2H,g_2K)$ for some $g_1,g_2\in G$, then we have $g_2^{-1}g_1\in (H\cap K)$ from $g_2^{-1}g_1H=H$ and $g_2^{-1}g_1K=K$, thus, $g_2^{-1}g_1(H\cap K)=(H\cap K)\Rightarrow g_1(H\cap K)=g_2(H\cap K)$, the map is injective. As a result, the inequality $|G:(H\cap K)|\le |G:H||G:K|$ holds.
+
+If $G=HK$, then $|G|=|HK|=\frac{|H||K|}{|H\cap K|}$ by (a). We obtain that $[G:H\cap K]=\frac{|H||K|}{|H\cap K|^2}$ and $[G:H][G:K]=\frac{|G|^2}{|K||H|}=\frac{|H||K|}{|H\cap K|^2}$. Thus, $[G:H\cap K]=[G:H][G:K]$. On the other hand, if $[G:H\cap K]=[G:H][G:K]$, then $|G|=\frac{|H||K|}{|H\cap K|}$. Since $|HK|=\frac{|H||K|}{|H\cap K|}=|G|$ and $HK$ is a subset of $G$, we must have $G=HK$.
 \subsection{}
+
 If $HK=KH$, every element $hk$ in $HK$ can be written as $k^{'}h^{'}$ for some $k,k^{'}\in K,h,h^{'}\in H$. Clearly, $HK$ contains $e$, the identity element in $G$. Suppose $u,v\in HK=KH$, $u=h_1k_1, v=k_2h_2$, $uv=h_1k_1k_2h_2$ ($h_1,h_2\in H$ and $k_1,k_2\in K$), let $k_1k_2=k_3\in K$, then $uv=h_1k_3h_2=h_1hk=h'k\in HK$ for some $h,h^{'}\in H, k\in K,hk=k_3h_2, h^{'}=h_1h$, thus $HK$ is closed under taking products. Also, $u^{-1}=k_1^{-1}h_1^{-1}$ and every element in $KH$ must can be written as $ab$ for some $,a\in H,b\in K$, since $k^{-1}\in K,h^{-1}\in H$, so $u^{-1}\in HK$, $HK$ is closed under taking inverse. In conclusion, $HK\le G$ if $HK=KH$.
 
 Conversely, if $HK\le G$. Obviously, $K\in HK$ and $H\in HK$ by the closure property of subgroups, $KH\subseteq HK$. Suppose $hk\in HK$, since $HK$ is a subgroup of $G$, let $a=h_1k_1$ be its inverse, then $hk=(h_1k_1)^{-1}=k_1^{-1}h_1^{-1}\in KH$. Since $HK$ and $KH$ contains each other, we have $HK=KH$. So $HK$ is a subgroup of $G$ if and only if $HK=KH$.
-
-% lack of -> proposition
 \subsection{}
+Since $H\cap K$ itself is a group (Let $x,y\in H\cap K$, then $xy\in H$ and $xy\in K$ and $x^{-1}\in H$ and $x^{-1}\in K$, so $xy\in H\cap K$ and $x^{-1}\in H\cap K$, here proves its closure), we have $(H\cap K)\le H$ and $(H\cap K)\le K$, also:
+\begin{align*}
+    [G:H\cap K]=[G:H][H:(H\cap K)] \\
+    [G:H\cap K]=[G:K][K:(H\cap K)]
+\end{align*}
+so $[G:H\cap K]$ is divided by both $[G:H]$ and $[G:K]$, by (b) and proposition above we conclude that:
+$$\mathrm{lcm}([G:H],[G:K])\le [G:H\cap K]\le [G:H][G:K]$$
+Since $[G:H],[G:K]$ are coprime, $\mathrm{lcm}([G:H],[G:K])=[G:H][G:K]$, we obtain $[G:H\cap K]=[G:H][G:K]$, by (b) the equality implies $G=HK$.
 
 \section{}
+\noindent\rule{\textwidth}{1pt}
 
+\noindent\textbf{Theorem: }(Cauchy's Theorem) Let $G$ be a finite group and $p$ be a prime. If $p$ divides the order of $G$, then $G$ has an element of order $p$.
 
+\begin{proof}
+We first prove the case when $G$ is abelian, and then the general case, both proof uses strong induction on $n=|G|$. When $n=p$, all non-identity elements have order of $p$ by Lagrange's theorem. Suppose $G$ is abelian first, take any non-identity element $a$, let $H$ be the cyclic group it generates, if $p$ divides $|H|$, then $a^{|H|/p}$ is an element with order $p$. If $p$ doesn't divide $|H|$, then it divides $[G:H]$, the order of the quotient group $G/H$ (It's a group since every subgroup of abelian group is normal), which contains and element of order $p$ by the inductive hypothesis. Suppose the element is $xH$ for some $x$ in $G$, if the order of $x$ in $G$ is $m$, then $x^m=e$ in $G$ gives $(xH)^m=H$, so $p$ divides $m$, $x^{m/p}$ is an element of order $p$ in $G$, completing the proof for abelian case.
+
+In the general case, when $n=p$, all non-identity elements have order of $p$ by Lagrange's theorem, this is the base case. Let $Z$ be the center of $G$, which is a abelian subgroup of $G$, if $p$ divides $|Z|$, then by the result of abelian case, $Z$ contains at least one element of order $p$. If $p$ doesn't divide $|Z|$, by the class equation proved in problem 2:
+$$|G|=|Z(G)|+\displaystyle\sum^m_{i=1}\frac{|G|}{|C_G(h_i)|}$$
+there exists one conjugacy class of non-central element $a$ whose size is not divisible by $p$, its size is $[G:C_G(a)]$, but $G$ is divisible by $p$, so $p$ must divides the order of the subgroup $C_G(a)$, the group contains an element with order $p$ by inductive hypothesis, and we are done.
+\end{proof}
+
+\noindent\rule{\textwidth}{1pt}
+
+Suppose $u,w\in G,u\ne v,u\ne e,v\ne e$ have order $2$, then the subgroup generated by $u,w$ is $\{e,u,w,uw\}$, where $e$ is the identity element of $G$. All the elements are unique since if $uw=e$, $u$ or $w$ would have two inverses, also $uw=u$ or $uw=w$ implies $w=e$ or $w=e$, both cases create condradiction. These four elements are the all of it since $G$ is abelian:
+\begin{align*}
+    uw=uw \\
+    wu=uw \\
+    uwu=uuw=w \\
+    uww=u \\
+    uuw=w \\
+    wuw=u \\
+    uwuw=e
+\end{align*}
+
+By Cauchy's theorem, since $p=2$ divides $|G|$, there exists at least one element of order $2$. By Lagrange theorem, $4$ must divides $|G|$, but $|G|=2n$ and $n$ is odd, $2n$ is not divisible by $4$, so it's impossible to have two or more elements of order $2$. In conclusion, there is only one element of order $2$ in $G$.
 
 \end{document}
