@@ -39,11 +39,11 @@
 % \noindent\rule{\textwidth}{1pt}
 \section{}
 \subsection{}
-Suppose that for any two distinct elements $s,t\in S$, we have $O(s)\ne O(t)$ and $O(s)\cap O(t)\ne\emptyset$. There exists $g_1,g_2\in G$ such that $g_1s=g_2t\Rightarrow t=g_2^{-1}g_1s$, hence, for every $g\in G$, we have $gt=gg_2^{-1}g_1s\in O(s)$, i.e., there's always one corresponding element in $O(s)$ for every element in $O(t)$, similarity we have $gs=gg_1^{-1}g_2t\in O(t)$, so $O(s)=O(t)$, which contradicts our assumption. Thus $O(s)\ne O(t)$ \textbf{and} $O(s)\cap O(t)\ne\emptyset$ is impossible, we either have $O(s)=O(t)$ or $O(s)\cap O(t)=\emptyset$.
+Suppose that for any two distinct elements $s,t\in S$, we have $O(s)\ne O(t)$ and $O(s)\cap O(t)\ne\emptyset$. There exists $g_1,g_2\in G$ such that $g_1s=g_2t\Rightarrow t=g_2^{-1}g_1s$, hence, for every $g\in G$, we have $gt=gg_2^{-1}g_1s\in O(s)$, i.e., there's always one corresponding element in $O(s)$ for every element in $O(t)$, similarity we have $gs=gg_1^{-1}g_2t\in O(t)$, so $O(s)=O(t)$, which contradicts our assumption. Thus $O(s)\ne O(t)$ \textbf{and} $O(s)\cap O(t)\ne\emptyset$ can't be true at the same time, we either have $O(s)=O(t)$ or $O(s)\cap O(t)=\emptyset$.
 \subsection{}
-$e\in G_s$ trivially, also for any $u,v\in G_s$, $(uv)s=us=s\Rightarrow (uv)\in G_s$, also $us=s,s=u^{-1}s\Rightarrow u^{-1}\in G_s$, thus $G_s$ is closed under taking products and inverses, $G_s\le G$.
+$e$, the identity element of $G$, is in $G_s$ trivially, also for any $u,v\in G_s$, $(uv)s=us=s\Rightarrow (uv)\in G_s$, also $us=s,s=u^{-1}s\Rightarrow u^{-1}\in G_s$, thus $G_s$ is closed under taking products and inverses, $G_s\le G$.
 
-Let the map be $\phi$, if $g_1G_s=g_2G_s$ and $g_1,g_2\in G$, then $g_2^{-1}g_1G_s=G_s\Rightarrow g_2^{-1}g_1\in G_s$. Hence, $g_2^{-1}g_1s=s, g_1s=g_2s, \phi(g_1G_s)=\phi(g_2G_s)$, we know $\phi$ is well-defined.
+Let the map be $\phi$ and $g_1,g_2\in G$, if $g_1G_s=g_2G_s$ and $g_1,g_2\in G$, then $g_2^{-1}g_1G_s=G_s\Rightarrow g_2^{-1}g_1\in G_s$. Hence, $g_2^{-1}g_1s=s, g_1s=g_2s$, from $\phi(g_1G_s)=\phi(g_2G_s)$ we know $\phi$ is well-defined.
 
 To prove the injectivity of $\phi$, if $g_1s=g_2s$ ($g_1,g_2\in G$), then $g_1^{-1}g_2s=s\Rightarrow g^{-1}g_2\in G_s$, so $g^{-1}g_2G_s=G_s$, we have $g_1G_s=g_2G_s$.
 
@@ -53,9 +53,9 @@ By the result in $(b)$, we know $|G:G_s|=|G|/|G_s|=|O(s)|$, hence $|G_s||O(s)|=|
 
 \section{}
 \subsection{}
-If $G$ is a finite group, then for any element $a\in G$, the element of $\mathrm{class}(a)$ and the left cosets of centralizer $C_G(a)$ form a bijection. Since for any two elements $u,v$ belonging to the same coset (so $u=vz$ for some $z\in C_G(a)$) give the same element when conjugating $a$: ($z$ commutes with every element in $G$)
-$$u^{-1}au=(vz)^{-1}a(vz)=z^{-1}v^{-1}avz=z^{-1}zv^{-1}av=v^{-1}av$$
-also, every cosets can be written as the form $gC_G(a)$ for some $g\in G$, it must can be mapped from $g^{-1}ag$, hence, there's one-to-one correspondence between conjugacy class of $a$ and the cosets of $C_G(a)$. (btw, $C_G(a)$ is trivially a subgroup of $G$, since it contains identity, also suppose $x,y\in C_G(a)$, then $(xy)^{-1}axy=a, xax^{-1}=a$, it's closed under group operations.)
+If $G$ is a finite group, then for any element $a\in G$, the element of $\mathrm{class}(a)$ and the left cosets of centralizer $C_G(a)$ form a bijection. Since for any two elements $u=b^{-1},v=c^{-1}$ ($b,c$ are the inverse of $u,v$ in $G$) belonging to the same coset (so $u=vz,c=zb$ for some $z\in C_G(a)$) give the same element when conjugating $a$: (since $z$ commutes with $a$)
+$$u^{-1}au=bab^{-1}=(cz^{-1})a(cz^{-1})^{-1}=cz^{-1}azc^{-1}=cz^{-1}zac^{-1}=cac^{-1}=v^{-1}av$$
+also, every cosets can be written as the form $gC_G(a)$ for some $g\in G$, it must can be mapped from $g^{-1}ag$, hence, there's one-to-one correspondence between conjugacy class of $a$ and the cosets of $C_G(a)$, so the size of conjugacy class $a$ is equal to $[G:C_G(a)]$. (btw, $C_G(a)$ is trivially a subgroup of $G$, since it contains identity, also suppose $x,y\in C_G(a)$, then $(xy)^{-1}axy=a, xax^{-1}=a$, it's closed under group operations and taking inverse.)
 
 Thus, the number of elements in conjugacy class of $a$ is the index $[G:C_G(a)]$ of the centralizer $C_G(a)$ in $G$, also the given conjugacy classes are disjoint, so $|G|=\displaystyle\sum^n_{i=1}[G:C_G(h_i)]=\displaystyle\sum^n_{i=1}\frac{|G|}{|C_G(h_i)|}$.
 
@@ -63,7 +63,7 @@ Thus, the number of elements in conjugacy class of $a$ is the index $[G:C_G(a)]$
 Observe that each of the elements in $Z(G)$ will forms a conjugacy class containing only itself, this is trivial by definition, if $z\in Z(G)$, then $g^{-1}zg=zg^{-1}g=z\forall g\in G$, so:
 $$|G|=\displaystyle\sum^n_{i=1}\frac{|G|}{|C_G(h_i)|}=|Z(G)|+\displaystyle\sum^m_{i=1}\frac{|G|}{|C_G(h_i)|}$$
 \subsection{}
-Since the order of any conjugacy class divides the $|G|$ (because $|\mathrm{class(h_i)}|=\frac{|G|}{|C_G(h_i)|}$), so the order of them are some power of $p$, hence, $|G|=|Z(G)|+\displaystyle\sum^m_{i=1}p^{k_i}$, where $0<k_i<n$. From this we found that $p$ must divides $|Z(G)|$, so $|Z(G)|>1$.
+Since the size of any conjugacy class divides the $|G|$ (because $|\mathrm{class(h_i)}|=\frac{|G|}{|C_G(h_i)|}$), so the sizes of them are some power of $p$, hence, $|G|=|Z(G)|+\displaystyle\sum^m_{i=1}p^{k_i}$, where $0<k_i<n$. From this we found that $p$ must divides $|Z(G)|$, so $|Z(G)|>1$.
 
 \section{}
 \subsection{}
@@ -75,14 +75,14 @@ To prove the inequality, it sufficies to show that the map:
 $$G/(H\cap K)\rightarrow G/H\times G/K\mathrm{\ given\ by\ }g(H\cap K)\mapsto (gH,gK)$$
 is well-defined and injective, since the injectivity implies the size of $G/(H\cap K)$ is less than or equal to the size of $G/H\times G/K$, which is $|G:H||G:K|$. Suppose $g_1(H\cap K)=g_2(H\cap K)$ ($g_1,g_2\in G$), then $g_2^{-1}g_1(H\cap K)=(H\cap K)$ implies $g_2^{-1}g_1\in(H\cap K)$. So $g_2^{-1}g_1H=H\Rightarrow g_1H=g_2H$ and $g_2^{-1}g_1K=K\Rightarrow g_1K=g_2K$, we have $(g_1H, g_1K)=(g_2H,g_2K)$, hence the map is well defined.
 
-Let $(g_1H, g_1K)=(g_2H,g_2K)$ for some $g_1,g_2\in G$, then we have $g_2^{-1}g_1\in (H\cap K)$ from $g_2^{-1}g_1H=H$ and $g_2^{-1}g_1K=K$, thus, $g_2^{-1}g_1(H\cap K)=(H\cap K)\Rightarrow g_1(H\cap K)=g_2(H\cap K)$, the map is injective. As a result, the inequality $|G:(H\cap K)|\le |G:H||G:K|$ holds.
+Let $(g_1H, g_1K)=(g_2H,g_2K)$ for some $g_1,g_2\in G$, then we have $g_2^{-1}g_1\in (H\cap K)$ from $g_2^{-1}g_1H=H$ and $g_2^{-1}g_1K=K$, thus, $g_2^{-1}g_1(H\cap K)=(H\cap K)\Rightarrow g_1(H\cap K)=g_2(H\cap K)$, so the map is injective. As a result, the inequality $|G:(H\cap K)|\le |G:H||G:K|$ holds.
 
 If $G=HK$, then $|G|=|HK|=\frac{|H||K|}{|H\cap K|}$ by (a). We obtain that $[G:H\cap K]=\frac{|H||K|}{|H\cap K|^2}$ and $[G:H][G:K]=\frac{|G|^2}{|K||H|}=\frac{|H||K|}{|H\cap K|^2}$. Thus, $[G:H\cap K]=[G:H][G:K]$. On the other hand, if $[G:H\cap K]=[G:H][G:K]$, then $|G|=\frac{|H||K|}{|H\cap K|}$. Since $|HK|=\frac{|H||K|}{|H\cap K|}=|G|$ and $HK$ is a subset of $G$, we must have $G=HK$.
 \subsection{}
 
-If $HK=KH$, every element $hk$ in $HK$ can be written as $k^{'}h^{'}$ for some $k,k^{'}\in K,h,h^{'}\in H$. Clearly, $HK$ contains $e$, the identity element in $G$. Suppose $u,v\in HK=KH$, $u=h_1k_1, v=k_2h_2$, $uv=h_1k_1k_2h_2$ ($h_1,h_2\in H$ and $k_1,k_2\in K$), let $k_1k_2=k_3\in K$, then $uv=h_1k_3h_2=h_1hk=h'k\in HK$ for some $h,h^{'}\in H, k\in K,hk=k_3h_2, h^{'}=h_1h$, thus $HK$ is closed under taking products. Also, $u^{-1}=k_1^{-1}h_1^{-1}$ and every element in $KH$ must can be written as $ab$ for some $,a\in H,b\in K$, since $k^{-1}\in K,h^{-1}\in H$, so $u^{-1}\in HK$, $HK$ is closed under taking inverse. In conclusion, $HK\le G$ if $HK=KH$.
+If $HK=KH$, every element $hk$ in $HK$ can be written as $k^{'}h^{'}$, for every $h,k\in HK$, for some $k^{'}\in K,h^{'}\in H$. Clearly, $HK$ contains $e$, the identity element in $G$. Suppose $u,v\in HK=KH$, $u=h_1k_1, v=k_2h_2$, then $uv=h_1k_1k_2h_2$ ($h_1,h_2\in H$ and $k_1,k_2\in K$), let $k_1k_2=k_3\in K$, then $uv=h_1k_3h_2=h_1hk=h'k\in HK$ for some $h,h^{'}\in H, k\in K,hk=k_3h_2, h^{'}=h_1h$, thus $HK$ is closed under taking products. Also, $u^{-1}=k_1^{-1}h_1^{-1}$ and every element in $KH$ must can be written as $ab$ for some $,a\in H,b\in K$, since $k^{-1}\in K,h^{-1}\in H$, so $u^{-1}\in HK$, $HK$ is closed under taking inverse. In conclusion, $HK\le G$ if $HK=KH$.
 
-Conversely, if $HK\le G$. Obviously, $K\in HK$ and $H\in HK$ by the closure property of subgroups, $KH\subseteq HK$. Suppose $hk\in HK$, since $HK$ is a subgroup of $G$, let $a=h_1k_1$ be its inverse, then $hk=(h_1k_1)^{-1}=k_1^{-1}h_1^{-1}\in KH$. Since $HK$ and $KH$ contains each other, we have $HK=KH$. So $HK$ is a subgroup of $G$ if and only if $HK=KH$.
+Conversely, if $HK\le G$. Obviously, $K\in HK$ and $H\in HK$, by the closure property of subgroups (because $HK\le G$), $KH\subseteq HK$. For any $hk\in HK, h\in H, k\in K$, since $HK$ is a subgroup of $G$, let $a=h_1k_1, h_1\in H, k_1\in H$ be its inverse in $HK$, then $hk=(h_1k_1)^{-1}=k_1^{-1}h_1^{-1}\in KH$, we conclude that $KH$ contains $HK$. Since $HK$ and $KH$ contains each other, we have $HK=KH$. So $HK$ is a subgroup of $G$ if and only if $HK=KH$.
 \subsection{}
 Since $H\cap K$ itself is a group (Let $x,y\in H\cap K$, then $xy\in H$ and $xy\in K$ and $x^{-1}\in H$ and $x^{-1}\in K$, so $xy\in H\cap K$ and $x^{-1}\in H\cap K$, here proves its closure), we have $(H\cap K)\le H$ and $(H\cap K)\le K$, also:
 \begin{align*}
@@ -91,7 +91,7 @@ Since $H\cap K$ itself is a group (Let $x,y\in H\cap K$, then $xy\in H$ and $xy\
 \end{align*}
 so $[G:H\cap K]$ is divided by both $[G:H]$ and $[G:K]$, by (b) and proposition above we conclude that:
 $$\mathrm{lcm}([G:H],[G:K])\le [G:H\cap K]\le [G:H][G:K]$$
-Since $[G:H],[G:K]$ are coprime, $\mathrm{lcm}([G:H],[G:K])=[G:H][G:K]$, we obtain $[G:H\cap K]=[G:H][G:K]$, by (b) the equality implies $G=HK$.
+Since $[G:H],[G:K]$ are coprime, $\mathrm{lcm}([G:H],[G:K])=[G:H][G:K]$, we obtain $[G:H\cap K]=[G:H][G:K]$, by (b), the equality implies $G=HK$.
 
 \section{}
 \noindent\rule{\textwidth}{1pt}
@@ -108,17 +108,24 @@ there exists one conjugacy class of non-central element $a$ whose size is not di
 
 \noindent\rule{\textwidth}{1pt}
 
-Suppose $u,w\in G,u\ne v,u\ne e,v\ne e$ have order $2$, then the subgroup generated by $u,w$ is $\{e,u,w,uw\}$, where $e$ is the identity element of $G$. All the elements are unique since if $uw=e$, $u$ or $w$ would have two inverses, also $uw=u$ or $uw=w$ implies $w=e$ or $w=e$, both cases create condradiction. These four elements are the all of it since $G$ is abelian:
+By Cauchy's theorem, since $p=2$ divides $|G|$, there exists at least one element of order $2$.
+
+Suppose $u,w\in G,u\ne v,u\ne e,v\ne e$ have order $2$, then the subgroup generated by $u,w$ is $\{e,u,w,uw\}$, where $e$ is the identity element of $G$. All the elements are unique since if $uw=e$, $u$ or $w$ would have two inverses, also $uw=u$ or $uw=w$ implies $w=e$ or $w=e$, both cases create condradiction. These four elements are the all of it and form a group since $G$ is abelian and it's closed under taking any products or inverses:
 \begin{align*}
+    u^2=e \\
+    w^2=e \\
     uw=uw \\
     wu=uw \\
-    uwu=uuw=w \\
-    uww=u \\
-    uuw=w \\
-    wuw=u \\
-    uwuw=e
+    (uw)u=u^2w=w \\
+    (uw)w=uw^2=u \\
+    u(uw)=w \\
+    w(uw)=u \\
+    (uw)(uw)=u^2w^2=e \\
+    u^{-1}=u \\
+    w^{-1}=w\\
+    (uw)^{-1}=w^{-1}u^{-1}=wu=uw
 \end{align*}
 
-By Cauchy's theorem, since $p=2$ divides $|G|$, there exists at least one element of order $2$. By Lagrange theorem, $4$ must divides $|G|$, but $|G|=2n$ and $n$ is odd, $2n$ is not divisible by $4$, so it's impossible to have two or more elements of order $2$. In conclusion, there is only one element of order $2$ in $G$.
+ By Lagrange theorem, $4$ must divides $|G|$, but $|G|=2n$ and $n$ is odd, $2n$ is not divisible by $4$, so it's impossible to have two or more elements of order $2$. In conclusion, there is only one element of order $2$ in $G$.
 
 \end{document}
